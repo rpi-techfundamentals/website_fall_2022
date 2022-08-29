@@ -23,9 +23,9 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: Convert Script
-      run: |
-        jupyter nbconvert --to script ./scripts/convert.ipynb
+  #  - name: Convert Script
+  #    run: |
+  #      jupyter nbconvert --to script ./scripts/convert.ipynb
 
     - name: Build Content
       run: |

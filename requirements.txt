@@ -11,5 +11,4 @@ pydata-sphinx-theme
 beautifulsoup4
 importlib-resources
 sphinx-book-theme
-nbconvert
 ruamel.yaml
