@@ -1,0 +1,1571 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>62. Homework-7 &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="77. Final Exam" href="hw-final.html" />
+    <link rel="prev" title="54. Homework-5" href="hw-5.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-32817743-6', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Introduction to Machine Learning Applications
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OVERVIEW
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/schedule.html">
+   Schedule
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  NOTEBOOKS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-01-01-python-overview.html">
+   1. Overview of Python Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-01-02-datastructures.html">
+   2. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-01-03-numpy.html">
+   3. Overview of Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-01-04-pandas.html">
+   4. Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-01-conditionals-loops.html">
+   5. Conditional Statements and Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-02-functions.html">
+   6. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-02a-pandas-functions.html">
+   7. Introduction to Apply Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-03-null-values.html">
+   8. Null Values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-04-groupby.html">
+   9. Groupby and Pivot Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-04-pivottable.html">
+   10. More Pivottables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-05-kaggle-baseline.html">
+   11. Kaggle Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-EX-Exercise1.html">
+   12. Exercise 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-03-01-features-dummies.html">
+   13. Feature Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-03-02-strings-regular-expressions.html">
+   15. String Manipulation and Regular Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-03-03-visualization-python-seaborn.html">
+   16. Introduction to Seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-03-04-intro-python-webmining.html">
+   17. Web Mining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-03-06-matplotlib.html">
+   18. MatplotLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-01-neural-networks.html">
+   19. Neural Networks and the Simplist XOR Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-02-train-test-split.html">
+   20. Train Test Splits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-03-intro-logistic-knn.html">
+   21. Classification with Scikit-learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-04-knn.html">
+   22. KNN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-05-revisit-titanic0.html">
+   23. Titanic Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-06-revisit-titanic.html">
+   24. Titanic Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-07-titanic-features.html">
+   25. Basic Text Feature Creation in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-05-01-matrix-regression-gradient-decent-python.html">
+   26. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-05-02-regression-boston-housing-python.html">
+   27. Boston Housing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-05-03-ridge-lasso-python.html">
+   28. Lasso Ridge Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-05-04-stats-models.html">
+   29. Regression with Stats-Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-06-01-introduction-pca.html">
+   30. Introduction to Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-06-02-pca2.html">
+   31. In Depth: Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-06-03-kmeans.html">
+   32. k-Means Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-06-04-covid19.html">
+   33. Coronavirus Data Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-00-corpus-simple.html">
+   34. Introduction to Text Mining in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-01-intro-nlp.html">
+   35. Natural Language Toolkit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-02-scikit-learn-text.html">
+   36. Bag-of-Words Using Scikit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-03-what-cooking-python.html">
+   37. What’s Cooking in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-05-bag-popcorn-bag-words.html">
+   38. Bag of Words
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-06-sentiment.html">
+   39. Sentiment Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-07-sentimentB.html">
+   41. Lecture-21: Introduction to Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-08-fastai-imdb.html">
+   43. IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-09-intro2.html">
+   44. Introduction to Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-10-vectorization.html">
+   45. Vectorizors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-08-01-midterm_sample.html">
+   47. Sample Coding Midterm.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-09-01-time-series.html">
+   48. Time Series Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-09-02-forcasting-rossman.html">
+   49. Panel Data vs Time Series Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-00-evaluation.html">
+   51. Evaluation of Classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-00-neural-networks.html">
+   52. Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-01-tensorflow.html">
+   53. Tensorflow Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-02-tensor-tutorial.html">
+   56. Pytorch Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-03-pytorch-iris.html">
+   57. Revisiting IRIS with PyTorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-04-covnet-tutorial.html">
+   58. Convolutional Neural Network with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-04-pytorch-explainer.html">
+   59. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-04_pytorch_mnist1.html">
+   60. Pytorch Advantages vs Tensorflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-05-pytorch-mnist.html">
+   61. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-06-regression-bh-pytorch.html">
+   62. Revisting Boston Housing with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-06_tensorflow_minst.html">
+   63. Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-07-titanic-fastai.html">
+   64. Titanic Fastai
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-08-ludwig.html">
+   65. Ludwig
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-09-vectorization-transfer.html">
+   66. Transfer Learning - NLP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-10-deeplearningtitanic.html">
+   68. Titanic Classification - Deep Learning Tensorflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-11-deeplearningregression.html">
+   70. Regression with Tensorflow/Keras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-99_intro_tensorflow.html">
+   71. Tensorflow Graph Creation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  ASSIGNMENTS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-1.html">
+   1. Homework-1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-2.html">
+   14. Homework-2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-3.html">
+   31. Homework-3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-4.html">
+   42. Homework-4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-5.html">
+   54. Homework-5
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   62. Homework-7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-final.html">
+   77. Final Exam
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rpi.box.com/s/2rivfabp5r2sc224nwgv3en1cmks3cec">
+   Box Link
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/fastai/fastbook">
+   Fast.ai Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.tensorflow.org/tutorials">
+   Tensorflow Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://pytorch.org/tutorials/">
+   Pytorch Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.kaggle.com/learn/intro-to-deep-learning">
+   Kaggle Introduction to Deep Learning Course
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/capstone.html">
+   <strong>
+    The MS Business Analytics Capstone Course
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/rpi-techfundamentals/website_fall_2021/master?urlpath=tree/site/assignments/hw-7.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/rpi-techfundamentals/website_fall_2021/blob/master/site/assignments/hw-7.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2021"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2021/issues/new?title=Issue%20on%20page%20%2Fassignments/hw-7.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/assignments/hw-7.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   62. Homework-7
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#total-number-of-points-40">
+     62.1. Total number of points: 40
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#due-date-dec-6-2021">
+   63. Due date: Dec 6, 2021
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#please-note-that-for-any-question-in-this-assignment-you-will-receive-points-only-if-your-solution-passes-all-the-test-cases-including-hidden-testcases-as-well-so-please-make-sure-you-try-to-think-all-possible-scenarios-before-submitting-your-answers">
+   64. Please note that for any question in this assignment you will receive points ONLY if your solution passes all the test cases including hidden testcases as well. So please make sure you try to think all possible scenarios before submitting your answers.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-24-points-we-will-leverage-randomforest-classifier-to-identify-the-best-features-that-predict-total-interactions">
+   65. Part-1 [24 points]: We will leverage randomforest classifier to identify the best features that predict ‘Total Interactions’.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-new-dataframe-df-sub2-that-contains-only-these-feature-columns-in-df">
+   66. 1. Create a new dataframe
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub2
+    </span>
+   </code>
+   that contains only these feature columns in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df
+    </span>
+   </code>
+   :
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transform-the-categorical-attribute-type-in-df-sub2-to-numerical-attribute-this-way">
+   67. 2. Transform the categorical attribute
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Type
+    </span>
+   </code>
+   in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub2
+    </span>
+   </code>
+   to numerical attribute this way:
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perform-standardization-using-this-formula-https-en-wikipedia-org-wiki-standard-score-only-on-page-total-likes-column-in-df-sub2">
+   68. 3. Perform Standardization (using this formula https://en.wikipedia.org/wiki/Standard_score) only on
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Page
+    </span>
+    <span class="pre">
+     total
+    </span>
+    <span class="pre">
+     likes
+    </span>
+   </code>
+   column in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub2
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-df-sub2-perform-train-test-split-operation-to-build-training-x-train-y-train-and-testing-data-x-test-y-test">
+   69. 4. Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub2
+    </span>
+   </code>
+   perform train_test_split operation to build training (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     X_train
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     y_train
+    </span>
+   </code>
+   ) and testing data (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     X_test
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     y_test
+    </span>
+   </code>
+   ).
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-the-randomforest-classifier-initialized-as-variable-rf-using-these-parameters-max-depth-3-random-state-0">
+   70. 5. Train the randomforest classifier (initialized as variable
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     rf
+    </span>
+   </code>
+   ) using these parameters: max_depth=3, random_state=0.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-16-points-we-will-now-use-neural-networks-to-model-a-regression-problem">
+   71. Part-2 [16 points]: We will now use neural networks to model a regression problem.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-new-dataframe-df-sub4-that-contains-only-these-feature-columns-in-df">
+   72. 1. Create a new dataframe
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub4
+    </span>
+   </code>
+   that contains only these feature columns in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df
+    </span>
+   </code>
+   :
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perform-one-hot-encoding-on-these-features-below-in-the-dataframe-df-sub4-to-create-a-new-dataframe-df-ohe">
+   73. 2. Perform one-hot encoding on these features below in the dataframe
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub4
+    </span>
+   </code>
+   to create a new dataframe
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_OHE
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perform-normalization-only-on-page-total-likes-and-total-interactions-column-in-df-ohe-using-minmaxscaler-or-minmax-scale">
+   74. 3. Perform normalization only on
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Page
+    </span>
+    <span class="pre">
+     total
+    </span>
+    <span class="pre">
+     likes
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Total
+    </span>
+    <span class="pre">
+     Interactions
+    </span>
+   </code>
+   column in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_OHE
+    </span>
+   </code>
+   using MinMaxScaler or minmax_scale
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-df-ohe-perform-train-test-split-operation-to-build-training-x-train-y-train-and-testing-data-x-test-y-test">
+   75. 4. Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_OHE
+    </span>
+   </code>
+   perform train_test_split operation to build training (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     X_train
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     y_train
+    </span>
+   </code>
+   ) and testing data (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     X_test
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     y_test
+    </span>
+   </code>
+   ).
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-a-3-layer-neural-network-with-relu-as-the-2-hidden-layers-activation-function-and-sigmoid-as-the-final-layer-s-activation-function">
+   76. 5. Build a 3-layer neural network with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     relu
+    </span>
+   </code>
+   as the 2 hidden layers’ activation function and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sigmoid
+    </span>
+   </code>
+   as the final layer’s activation function.
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Homework-7</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   62. Homework-7
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#total-number-of-points-40">
+     62.1. Total number of points: 40
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#due-date-dec-6-2021">
+   63. Due date: Dec 6, 2021
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#please-note-that-for-any-question-in-this-assignment-you-will-receive-points-only-if-your-solution-passes-all-the-test-cases-including-hidden-testcases-as-well-so-please-make-sure-you-try-to-think-all-possible-scenarios-before-submitting-your-answers">
+   64. Please note that for any question in this assignment you will receive points ONLY if your solution passes all the test cases including hidden testcases as well. So please make sure you try to think all possible scenarios before submitting your answers.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-24-points-we-will-leverage-randomforest-classifier-to-identify-the-best-features-that-predict-total-interactions">
+   65. Part-1 [24 points]: We will leverage randomforest classifier to identify the best features that predict ‘Total Interactions’.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-new-dataframe-df-sub2-that-contains-only-these-feature-columns-in-df">
+   66. 1. Create a new dataframe
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub2
+    </span>
+   </code>
+   that contains only these feature columns in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df
+    </span>
+   </code>
+   :
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transform-the-categorical-attribute-type-in-df-sub2-to-numerical-attribute-this-way">
+   67. 2. Transform the categorical attribute
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Type
+    </span>
+   </code>
+   in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub2
+    </span>
+   </code>
+   to numerical attribute this way:
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perform-standardization-using-this-formula-https-en-wikipedia-org-wiki-standard-score-only-on-page-total-likes-column-in-df-sub2">
+   68. 3. Perform Standardization (using this formula https://en.wikipedia.org/wiki/Standard_score) only on
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Page
+    </span>
+    <span class="pre">
+     total
+    </span>
+    <span class="pre">
+     likes
+    </span>
+   </code>
+   column in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub2
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-df-sub2-perform-train-test-split-operation-to-build-training-x-train-y-train-and-testing-data-x-test-y-test">
+   69. 4. Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub2
+    </span>
+   </code>
+   perform train_test_split operation to build training (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     X_train
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     y_train
+    </span>
+   </code>
+   ) and testing data (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     X_test
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     y_test
+    </span>
+   </code>
+   ).
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-the-randomforest-classifier-initialized-as-variable-rf-using-these-parameters-max-depth-3-random-state-0">
+   70. 5. Train the randomforest classifier (initialized as variable
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     rf
+    </span>
+   </code>
+   ) using these parameters: max_depth=3, random_state=0.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-16-points-we-will-now-use-neural-networks-to-model-a-regression-problem">
+   71. Part-2 [16 points]: We will now use neural networks to model a regression problem.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-new-dataframe-df-sub4-that-contains-only-these-feature-columns-in-df">
+   72. 1. Create a new dataframe
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub4
+    </span>
+   </code>
+   that contains only these feature columns in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df
+    </span>
+   </code>
+   :
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perform-one-hot-encoding-on-these-features-below-in-the-dataframe-df-sub4-to-create-a-new-dataframe-df-ohe">
+   73. 2. Perform one-hot encoding on these features below in the dataframe
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_sub4
+    </span>
+   </code>
+   to create a new dataframe
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_OHE
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perform-normalization-only-on-page-total-likes-and-total-interactions-column-in-df-ohe-using-minmaxscaler-or-minmax-scale">
+   74. 3. Perform normalization only on
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Page
+    </span>
+    <span class="pre">
+     total
+    </span>
+    <span class="pre">
+     likes
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Total
+    </span>
+    <span class="pre">
+     Interactions
+    </span>
+   </code>
+   column in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_OHE
+    </span>
+   </code>
+   using MinMaxScaler or minmax_scale
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-df-ohe-perform-train-test-split-operation-to-build-training-x-train-y-train-and-testing-data-x-test-y-test">
+   75. 4. Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df_OHE
+    </span>
+   </code>
+   perform train_test_split operation to build training (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     X_train
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     y_train
+    </span>
+   </code>
+   ) and testing data (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     X_test
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     y_test
+    </span>
+   </code>
+   ).
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-a-3-layer-neural-network-with-relu-as-the-2-hidden-layers-activation-function-and-sigmoid-as-the-final-layer-s-activation-function">
+   76. 5. Build a 3-layer neural network with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     relu
+    </span>
+   </code>
+   as the 2 hidden layers’ activation function and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sigmoid
+    </span>
+   </code>
+   as the final layer’s activation function.
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="section" id="homework-7">
+<h1><span class="section-number">62. </span>Homework-7<a class="headerlink" href="#homework-7" title="Permalink to this headline">#</a></h1>
+<p>This is an optional homework but you should consider it to be good practice for the Final Exam.  If you submit it will replace your 2nd lowest homework grade.</p>
+<div class="section" id="total-number-of-points-40">
+<h2><span class="section-number">62.1. </span>Total number of points: 40<a class="headerlink" href="#total-number-of-points-40" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="due-date-dec-6-2021">
+<h1><span class="section-number">63. </span>Due date: Dec 6, 2021<a class="headerlink" href="#due-date-dec-6-2021" title="Permalink to this headline">#</a></h1>
+<p>Before you submit this homework, make sure everything runs as expected. First, restart the kernel (in the menu, select Kernel → Restart) and then run all cells (in the menubar, select Cell → Run All). You can discuss with others regarding the homework but all work must be your own.</p>
+<p>This homework will test your knowledge on random forests (including feature importances), and neural networks. The Python notebooks shared will be helpful to solve these problems.</p>
+<p>Steps to evaluate your solutions:</p>
+<p>Step-1: Try on Colab or Anaconda (Windows: <a class="reference external" href="https://docs.anaconda.com/anaconda/install/windows/">https://docs.anaconda.com/anaconda/install/windows/</a> ; Mac:<a class="reference external" href="https://docs.anaconda.com/anaconda/install/mac-os/">https://docs.anaconda.com/anaconda/install/mac-os/</a> ; Linux: <a class="reference external" href="https://docs.anaconda.com/anaconda/install/linux/">https://docs.anaconda.com/anaconda/install/linux/</a>)</p>
+<p>Step-2: Open the Jupyter Notebook by first launching the anaconda software console</p>
+<p>Step-3: Open the homework’s .ipynb file and write your solutions at the appropriate location “# YOUR CODE HERE”</p>
+<p>Step-4: You can restart the kernel and click run all (in the menubar, select Cell → Run All) on the center-right on the top of this window.</p>
+<p>Step-5: Now go to “File” then click on “Download as” then click on “Notebook (.ipynb)” Please DO NOT change the file name and just keep it as “.ipynb”</p>
+<p>Step-6: Go to <a class="reference external" href="http://lms.rpi.edu">lms.rpi.edu</a> and upload your homework at the appropriate link to submit this homework.</p>
+</div>
+<div class="section" id="please-note-that-for-any-question-in-this-assignment-you-will-receive-points-only-if-your-solution-passes-all-the-test-cases-including-hidden-testcases-as-well-so-please-make-sure-you-try-to-think-all-possible-scenarios-before-submitting-your-answers">
+<h1><span class="section-number">64. </span>Please note that for any question in this assignment you will receive points ONLY if your solution passes all the test cases including hidden testcases as well. So please make sure you try to think all possible scenarios before submitting your answers.<a class="headerlink" href="#please-note-that-for-any-question-in-this-assignment-you-will-receive-points-only-if-your-solution-passes-all-the-test-cases-including-hidden-testcases-as-well-so-please-make-sure-you-try-to-think-all-possible-scenarios-before-submitting-your-answers" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Note that hidden tests are present to ensure you are not hardcoding.</p></li>
+<li><p>If caught cheating:</p>
+<ul>
+<li><p>you will receive a score of 0 for the 1st violation.</p></li>
+<li><p>for repeated incidents, you will receive an automatic ‘F’ grade and will be reported to the dean of Lally School of Management.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please run this cell to load the dataset. </span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/lmanikon/lmanikon.github.io/master/teaching/datasets/dataset_Facebook.csv&#39;</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">df</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-1-24-points-we-will-leverage-randomforest-classifier-to-identify-the-best-features-that-predict-total-interactions">
+<h1><span class="section-number">65. </span>Part-1 [24 points]: We will leverage randomforest classifier to identify the best features that predict ‘Total Interactions’.<a class="headerlink" href="#part-1-24-points-we-will-leverage-randomforest-classifier-to-identify-the-best-features-that-predict-total-interactions" title="Permalink to this headline">#</a></h1>
+</div>
+<div class="section" id="create-a-new-dataframe-df-sub2-that-contains-only-these-feature-columns-in-df">
+<h1><span class="section-number">66. </span>1. Create a new dataframe <code class="docutils literal notranslate"><span class="pre">df_sub2</span></code> that contains only these feature columns in <code class="docutils literal notranslate"><span class="pre">df</span></code> :<a class="headerlink" href="#create-a-new-dataframe-df-sub2-that-contains-only-these-feature-columns-in-df" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Page</span> <span class="pre">total</span> <span class="pre">likes</span></code>, <code class="docutils literal notranslate"><span class="pre">Type</span></code>, <code class="docutils literal notranslate"><span class="pre">Category</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Month</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Weekday</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Hour</span></code>, <code class="docutils literal notranslate"><span class="pre">Paid</span></code>,  <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Interactions</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="transform-the-categorical-attribute-type-in-df-sub2-to-numerical-attribute-this-way">
+<h1><span class="section-number">67. </span>2. Transform the categorical attribute <code class="docutils literal notranslate"><span class="pre">Type</span></code> in <code class="docutils literal notranslate"><span class="pre">df_sub2</span></code> to numerical attribute this way:<a class="headerlink" href="#transform-the-categorical-attribute-type-in-df-sub2-to-numerical-attribute-this-way" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Link</span></code>:1, <code class="docutils literal notranslate"><span class="pre">Photo</span></code>:2, <code class="docutils literal notranslate"><span class="pre">Status</span></code>:3, <code class="docutils literal notranslate"><span class="pre">Video</span></code>:4</p></li>
+</ul>
+</div>
+<div class="section" id="perform-standardization-using-this-formula-https-en-wikipedia-org-wiki-standard-score-only-on-page-total-likes-column-in-df-sub2">
+<h1><span class="section-number">68. </span>3. Perform Standardization (using this formula <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_score">https://en.wikipedia.org/wiki/Standard_score</a>) only on <code class="docutils literal notranslate"><span class="pre">Page</span> <span class="pre">total</span> <span class="pre">likes</span></code> column in <code class="docutils literal notranslate"><span class="pre">df_sub2</span></code><a class="headerlink" href="#perform-standardization-using-this-formula-https-en-wikipedia-org-wiki-standard-score-only-on-page-total-likes-column-in-df-sub2" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Please use <code class="docutils literal notranslate"><span class="pre">&lt;dataframe&gt;['&lt;column&gt;'].mean()</span></code> <code class="docutils literal notranslate"><span class="pre">&lt;dataframe&gt;['&lt;column&gt;'].std()</span></code> if you are using the mean and std values to manipulate the column.</p></li>
+</ul>
+</div>
+<div class="section" id="using-df-sub2-perform-train-test-split-operation-to-build-training-x-train-y-train-and-testing-data-x-test-y-test">
+<h1><span class="section-number">69. </span>4. Using <code class="docutils literal notranslate"><span class="pre">df_sub2</span></code> perform train_test_split operation to build training (<code class="docutils literal notranslate"><span class="pre">X_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_train</span></code>) and testing data (<code class="docutils literal notranslate"><span class="pre">X_test</span></code>, <code class="docutils literal notranslate"><span class="pre">y_test</span></code>).<a class="headerlink" href="#using-df-sub2-perform-train-test-split-operation-to-build-training-x-train-y-train-and-testing-data-x-test-y-test" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Use test_size=0.3, random_state=42 as the parameters for train_test_split() function.</p></li>
+<li><p>Feature columns (X): <code class="docutils literal notranslate"><span class="pre">Page</span> <span class="pre">total</span> <span class="pre">likes</span></code>, <code class="docutils literal notranslate"><span class="pre">Type</span></code>, <code class="docutils literal notranslate"><span class="pre">Category</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Month</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Weekday</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Hour</span></code>, <code class="docutils literal notranslate"><span class="pre">Paid</span></code></p></li>
+<li><p>CLass label column (y): <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Interactions</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="train-the-randomforest-classifier-initialized-as-variable-rf-using-these-parameters-max-depth-3-random-state-0">
+<h1><span class="section-number">70. </span>5. Train the randomforest classifier (initialized as variable <code class="docutils literal notranslate"><span class="pre">rf</span></code>) using these parameters: max_depth=3, random_state=0.<a class="headerlink" href="#train-the-randomforest-classifier-initialized-as-variable-rf-using-these-parameters-max-depth-3-random-state-0" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Using the trained model <code class="docutils literal notranslate"><span class="pre">rf</span></code> compute the impurity-based feature importances.</p></li>
+<li><p>Append the names of these top-3 features to list <code class="docutils literal notranslate"><span class="pre">impFeatures</span></code>. Please make sure you type the feature names exactly as in df_sub2</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##Cell-1 -- Do not modify this cell</span>
+<span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">df_sub2</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">==</span><span class="p">{</span><span class="s1">&#39;Post Hour&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Interactions&#39;</span><span class="p">,</span> <span class="s1">&#39;Post Weekday&#39;</span><span class="p">,</span> <span class="s1">&#39;Category&#39;</span><span class="p">,</span> <span class="s1">&#39;Paid&#39;</span><span class="p">,</span> <span class="s1">&#39;Post Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Page total likes&#39;</span><span class="p">,</span> <span class="s1">&#39;Type&#39;</span><span class="p">}</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_sub2</span><span class="p">)</span><span class="o">==</span><span class="mi">495</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_sub2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span><span class="o">==</span><span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##Cell-2 -- Do not modify this cell</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">df_sub2</span><span class="p">[</span><span class="s1">&#39;Page total likes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">==</span><span class="mi">0</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="o">==</span><span class="mi">346</span>
+<span class="k">assert</span> <span class="s1">&#39;Post Hour&#39;</span> <span class="ow">in</span> <span class="n">impFeatures</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##Cell-3 -- Do not modify this cell</span>
+<span class="k">assert</span> <span class="n">rf</span><span class="o">.</span><span class="n">n_classes_</span><span class="o">==</span><span class="mi">230</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">impFeatures</span><span class="p">)</span><span class="o">==</span><span class="mi">3</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">df_sub2</span><span class="p">[</span><span class="s1">&#39;Page total likes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span><span class="o">==</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##Cell-4 -- Do not modify this cell</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">rf</span><span class="o">.</span><span class="n">n_features_</span><span class="p">)</span><span class="o">==</span><span class="mi">7</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span><span class="o">==</span><span class="mi">149</span>
+<span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">impFeatures</span><span class="p">)</span><span class="o">==</span><span class="p">{</span><span class="s1">&#39;Page total likes&#39;</span><span class="p">,</span> <span class="s1">&#39;Post Hour&#39;</span><span class="p">,</span> <span class="s1">&#39;Post Weekday&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-2-16-points-we-will-now-use-neural-networks-to-model-a-regression-problem">
+<h1><span class="section-number">71. </span>Part-2 [16 points]: We will now use neural networks to model a regression problem.<a class="headerlink" href="#part-2-16-points-we-will-now-use-neural-networks-to-model-a-regression-problem" title="Permalink to this headline">#</a></h1>
+</div>
+<div class="section" id="create-a-new-dataframe-df-sub4-that-contains-only-these-feature-columns-in-df">
+<h1><span class="section-number">72. </span>1. Create a new dataframe <code class="docutils literal notranslate"><span class="pre">df_sub4</span></code> that contains only these feature columns in <code class="docutils literal notranslate"><span class="pre">df</span></code> :<a class="headerlink" href="#create-a-new-dataframe-df-sub4-that-contains-only-these-feature-columns-in-df" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Page</span> <span class="pre">total</span> <span class="pre">likes</span></code>, <code class="docutils literal notranslate"><span class="pre">Type</span></code>, <code class="docutils literal notranslate"><span class="pre">Category</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Month</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Weekday</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Hour</span></code>, <code class="docutils literal notranslate"><span class="pre">Paid</span></code>,  <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Interactions</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="perform-one-hot-encoding-on-these-features-below-in-the-dataframe-df-sub4-to-create-a-new-dataframe-df-ohe">
+<h1><span class="section-number">73. </span>2. Perform one-hot encoding on these features below in the dataframe <code class="docutils literal notranslate"><span class="pre">df_sub4</span></code> to create a new dataframe <code class="docutils literal notranslate"><span class="pre">df_OHE</span></code><a class="headerlink" href="#perform-one-hot-encoding-on-these-features-below-in-the-dataframe-df-sub4-to-create-a-new-dataframe-df-ohe" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Type</span></code>, <code class="docutils literal notranslate"><span class="pre">Category</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Month</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Weekday</span></code>, <code class="docutils literal notranslate"><span class="pre">Post</span> <span class="pre">Hour</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="perform-normalization-only-on-page-total-likes-and-total-interactions-column-in-df-ohe-using-minmaxscaler-or-minmax-scale">
+<h1><span class="section-number">74. </span>3. Perform normalization only on <code class="docutils literal notranslate"><span class="pre">Page</span> <span class="pre">total</span> <span class="pre">likes</span></code> and <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Interactions</span></code> column in <code class="docutils literal notranslate"><span class="pre">df_OHE</span></code> using MinMaxScaler or minmax_scale<a class="headerlink" href="#perform-normalization-only-on-page-total-likes-and-total-interactions-column-in-df-ohe-using-minmaxscaler-or-minmax-scale" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>note that both these functions will output the same result</p></li>
+</ul>
+</div>
+<div class="section" id="using-df-ohe-perform-train-test-split-operation-to-build-training-x-train-y-train-and-testing-data-x-test-y-test">
+<h1><span class="section-number">75. </span>4. Using <code class="docutils literal notranslate"><span class="pre">df_OHE</span></code> perform train_test_split operation to build training (<code class="docutils literal notranslate"><span class="pre">X_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_train</span></code>) and testing data (<code class="docutils literal notranslate"><span class="pre">X_test</span></code>, <code class="docutils literal notranslate"><span class="pre">y_test</span></code>).<a class="headerlink" href="#using-df-ohe-perform-train-test-split-operation-to-build-training-x-train-y-train-and-testing-data-x-test-y-test" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Use test_size=0.3, random_state=42 as the parameters for train_test_split() function.</p></li>
+<li><p>Feature columns (X): Everything except <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Interactions</span></code></p></li>
+<li><p>CLass label column (y): <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Interactions</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="build-a-3-layer-neural-network-with-relu-as-the-2-hidden-layers-activation-function-and-sigmoid-as-the-final-layer-s-activation-function">
+<h1><span class="section-number">76. </span>5. Build a 3-layer neural network with <code class="docutils literal notranslate"><span class="pre">relu</span></code> as the 2 hidden layers’ activation function and <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code> as the final layer’s activation function.<a class="headerlink" href="#build-a-3-layer-neural-network-with-relu-as-the-2-hidden-layers-activation-function-and-sigmoid-as-the-final-layer-s-activation-function" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Use the same <code class="docutils literal notranslate"><span class="pre">adam</span></code> optimizer and <code class="docutils literal notranslate"><span class="pre">mean_squared_error</span></code> as the loss function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">epochs</span></code>=150, <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>=10</p></li>
+<li><p>since the class label is continuous, we use <code class="docutils literal notranslate"><span class="pre">metrics.MeanSquaredError()</span></code> as the metric (<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">keras</span> <span class="pre">import</span> <span class="pre">metrics</span></code>) to measure the performance of our classifier captured as variable <code class="docutils literal notranslate"><span class="pre">mse</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please run this cell to install keras</span>
+<span class="c1">#!pip install keras</span>
+<span class="c1">#!pip install tensorflow</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##Cell-5 -- Do not modify this cell</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">df_OHE</span><span class="p">[</span><span class="s1">&#39;Page total likes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span> <span class="o">==</span> <span class="mi">357</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">df_OHE</span><span class="p">[</span><span class="s1">&#39;Total Interactions&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span> <span class="o">==</span> <span class="mi">17</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">df_OHE</span><span class="p">[</span><span class="s1">&#39;Page total likes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">df_OHE</span><span class="p">[</span><span class="s1">&#39;Total Interactions&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##Cell-6 -- Do not modify this cell</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="o">==</span><span class="mi">346</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span><span class="o">==</span><span class="mi">149</span>
+<span class="k">assert</span> <span class="n">mse</span><span class="o">&lt;</span><span class="mf">0.005</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span><span class="o">==</span><span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="hw-5.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">54. </span>Homework-5</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="hw-final.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">77. </span>Final Exam</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jason Kuruzovich<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
