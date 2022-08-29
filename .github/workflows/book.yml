@@ -27,9 +27,9 @@ jobs:
   #    run: |
   #      jupyter nbconvert --to script ./scripts/convert.ipynb
 
-    - name: Build Content
-      run: |
-        cd scripts && python convert.py
+  #  - name: Build Content
+  #    run: |
+  #      cd scripts && python convert.py
 
     # Build the book
     - name: Build the book
