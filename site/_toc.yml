@@ -1,0 +1,35 @@
+format: jb-book
+root: intro
+parts:
+- caption: OVERVIEW
+  chapters:
+  - file: content/schedule
+    title: Schedule
+- caption: NOTEBOOKS
+  numbered: True
+  start_numbering_at: 1
+  chapters:
+  - glob: notebooks/nb*
+- caption: ASSIGNMENTS
+  numbered: True
+  start_numbering_at: 1
+  chapters:
+  - glob: assignments/hw*
+- caption: Resources
+  numbered: False
+  chapters:
+  - url: https://rpi.box.com/s/2rivfabp5r2sc224nwgv3en1cmks3cec
+    title: Box Link
+  - url: https://github.com/ageron/handson-ml2
+    title: Hands On Machine Learning with Python
+  - url: https://github.com/ageron/handson-ml2
+    title: Hands On Machine Learning with Python
+  - url: https://github.com/fastai/fastbook
+    title: Fast.ai Book
+  - url: https://www.tensorflow.org/tutorials
+    title: Tensorflow Tutorials
+  - url: https://pytorch.org/tutorials/
+    title: Pytorch Tutorials
+  - url: https://www.kaggle.com/learn/intro-to-deep-learning
+    title: Kaggle Introduction to Deep Learning Course
+  - file: content/capstone

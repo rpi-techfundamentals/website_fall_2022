@@ -1,0 +1,1479 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>29. Regression with Stats-Models &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="30. Introduction to Principal Component Analysis" href="nb-06-01-introduction-pca.html" />
+    <link rel="prev" title="28. Lasso Ridge Regression" href="nb-05-03-ridge-lasso-python.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-32817743-6', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Introduction to Machine Learning Applications
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OVERVIEW
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/schedule.html">
+   Schedule
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  NOTEBOOKS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-01-python-overview.html">
+   1. Overview of Python Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-02-datastructures.html">
+   2. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-03-numpy.html">
+   3. Overview of Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-04-pandas.html">
+   4. Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-01-conditionals-loops.html">
+   5. Conditional Statements and Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-02-functions.html">
+   6. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-02a-pandas-functions.html">
+   7. Introduction to Apply Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-03-null-values.html">
+   8. Null Values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-04-groupby.html">
+   9. Groupby and Pivot Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-04-pivottable.html">
+   10. More Pivottables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-05-kaggle-baseline.html">
+   11. Kaggle Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-EX-Exercise1.html">
+   12. Exercise 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-01-features-dummies.html">
+   13. Feature Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-02-strings-regular-expressions.html">
+   15. String Manipulation and Regular Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-03-visualization-python-seaborn.html">
+   16. Introduction to Seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-04-intro-python-webmining.html">
+   17. Web Mining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-06-matplotlib.html">
+   18. MatplotLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-01-neural-networks.html">
+   19. Neural Networks and the Simplist XOR Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-02-train-test-split.html">
+   20. Train Test Splits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-03-intro-logistic-knn.html">
+   21. Classification with Scikit-learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-04-knn.html">
+   22. KNN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-05-revisit-titanic0.html">
+   23. Titanic Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-06-revisit-titanic.html">
+   24. Titanic Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-07-titanic-features.html">
+   25. Basic Text Feature Creation in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-05-01-matrix-regression-gradient-decent-python.html">
+   26. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-05-02-regression-boston-housing-python.html">
+   27. Boston Housing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-05-03-ridge-lasso-python.html">
+   28. Lasso Ridge Regression
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   29. Regression with Stats-Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-01-introduction-pca.html">
+   30. Introduction to Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-02-pca2.html">
+   31. In Depth: Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-03-kmeans.html">
+   32. k-Means Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-04-covid19.html">
+   33. Coronavirus Data Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-00-corpus-simple.html">
+   34. Introduction to Text Mining in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-01-intro-nlp.html">
+   35. Natural Language Toolkit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-02-scikit-learn-text.html">
+   36. Bag-of-Words Using Scikit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-03-what-cooking-python.html">
+   37. What’s Cooking in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-05-bag-popcorn-bag-words.html">
+   38. Bag of Words
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-06-sentiment.html">
+   39. Sentiment Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-07-sentimentB.html">
+   41. Lecture-21: Introduction to Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-08-fastai-imdb.html">
+   43. IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-09-intro2.html">
+   44. Introduction to Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-10-vectorization.html">
+   45. Vectorizors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-08-01-midterm_sample.html">
+   47. Sample Coding Midterm.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-09-01-time-series.html">
+   48. Time Series Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-09-02-forcasting-rossman.html">
+   49. Panel Data vs Time Series Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-00-evaluation.html">
+   51. Evaluation of Classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-00-neural-networks.html">
+   52. Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-01-tensorflow.html">
+   53. Tensorflow Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-02-tensor-tutorial.html">
+   56. Pytorch Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-03-pytorch-iris.html">
+   57. Revisiting IRIS with PyTorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-04-covnet-tutorial.html">
+   58. Convolutional Neural Network with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-04-pytorch-explainer.html">
+   59. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-04_pytorch_mnist1.html">
+   60. Pytorch Advantages vs Tensorflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-05-pytorch-mnist.html">
+   61. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-06-regression-bh-pytorch.html">
+   62. Revisting Boston Housing with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-06_tensorflow_minst.html">
+   63. Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-07-titanic-fastai.html">
+   64. Titanic Fastai
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-08-ludwig.html">
+   65. Ludwig
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-09-vectorization-transfer.html">
+   66. Transfer Learning - NLP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-10-deeplearningtitanic.html">
+   68. Titanic Classification - Deep Learning Tensorflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-11-deeplearningregression.html">
+   70. Regression with Tensorflow/Keras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-99_intro_tensorflow.html">
+   71. Tensorflow Graph Creation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  ASSIGNMENTS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-1.html">
+   1. Homework-1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-2.html">
+   14. Homework-2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-3.html">
+   31. Homework-3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-4.html">
+   42. Homework-4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-5.html">
+   54. Homework-5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-7.html">
+   62. Homework-7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-final.html">
+   77. Final Exam
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rpi.box.com/s/2rivfabp5r2sc224nwgv3en1cmks3cec">
+   Box Link
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/fastai/fastbook">
+   Fast.ai Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.tensorflow.org/tutorials">
+   Tensorflow Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://pytorch.org/tutorials/">
+   Pytorch Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.kaggle.com/learn/intro-to-deep-learning">
+   Kaggle Introduction to Deep Learning Course
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/capstone.html">
+   <strong>
+    The MS Business Analytics Capstone Course
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/rpi-techfundamentals/website_fall_2021/master?urlpath=tree/site/notebooks/nb-05-04-stats-models.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/rpi-techfundamentals/website_fall_2021/blob/master/site/notebooks/nb-05-04-stats-models.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2021"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2021/issues/new?title=Issue%20on%20page%20%2Fnotebooks/nb-05-04-stats-models.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/nb-05-04-stats-models.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scikit-learn-vs-stats-models">
+   29.1. Scikit-learn vs Stats-Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-the-data">
+   29.2. About the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predicting-gambling">
+   29.3. Predicting Gambling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternate-syntax">
+   29.4. Alternate Syntax
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-stargazer">
+     29.4.1. Use Stargazer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-compare-results">
+   29.5. Challenge: Compare Results
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Regression with Stats-Models</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scikit-learn-vs-stats-models">
+   29.1. Scikit-learn vs Stats-Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-the-data">
+   29.2. About the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predicting-gambling">
+   29.3. Predicting Gambling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternate-syntax">
+   29.4. Alternate Syntax
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-stargazer">
+     29.4.1. Use Stargazer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-compare-results">
+   29.5. Challenge: Compare Results
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a class="reference external" href="http://rpi.analyticsdojo.com"><img alt="AnalyticsDojo" src="https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1" /></a></p>
+<center><h1>Regression with Stats-Models </h1></center>
+<center><h3><a href = 'http://rpi.analyticsdojo.com'>rpi.analyticsdojo.com</a></h3></center><div class="tex2jax_ignore mathjax_ignore section" id="regression-with-stats-models">
+<h1><span class="section-number">29. </span>Regression with Stats-Models<a class="headerlink" href="#regression-with-stats-models" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="scikit-learn-vs-stats-models">
+<h2><span class="section-number">29.1. </span>Scikit-learn vs Stats-Models<a class="headerlink" href="#scikit-learn-vs-stats-models" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Scikit-learn provides framework which enables a similar api (way of interacting with codebase) for many different types of machine learning (i.e., predictive) models.</p></li>
+<li><p>Stats-Models provices a clear set of results for statistical analsyses (understanding relationships) common to scientific (i.e., explanitory) models</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Get a sample dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s2">&quot;Guerry&quot;</span><span class="p">,</span> <span class="s2">&quot;HistData&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="about-the-data">
+<h2><span class="section-number">29.2. </span>About the Data<a class="headerlink" href="#about-the-data" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>See <a class="reference external" href="https://cran.r-project.org/web/packages/HistData/HistData.pdf">link</a>.</p></li>
+<li><p>Andre-Michel Guerry (1833) was the first to systematically collect and analyze social data on such things as crime, literacy and suicide with the view to determining social laws and the relations among these variables.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;dept&#39;, &#39;Region&#39;, &#39;Department&#39;, &#39;Crime_pers&#39;, &#39;Crime_prop&#39;, &#39;Literacy&#39;,
+       &#39;Donations&#39;, &#39;Infants&#39;, &#39;Suicides&#39;, &#39;MainCity&#39;, &#39;Wealth&#39;, &#39;Commerce&#39;,
+       &#39;Clergy&#39;, &#39;Crime_parents&#39;, &#39;Infanticide&#39;, &#39;Donation_clergy&#39;, &#39;Lottery&#39;,
+       &#39;Desertion&#39;, &#39;Instruction&#39;, &#39;Prostitutes&#39;, &#39;Distance&#39;, &#39;Area&#39;,
+       &#39;Pop1831&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dept</th>
+      <th>Region</th>
+      <th>Department</th>
+      <th>Crime_pers</th>
+      <th>Crime_prop</th>
+      <th>Literacy</th>
+      <th>Donations</th>
+      <th>Infants</th>
+      <th>Suicides</th>
+      <th>MainCity</th>
+      <th>Wealth</th>
+      <th>Commerce</th>
+      <th>Clergy</th>
+      <th>Crime_parents</th>
+      <th>Infanticide</th>
+      <th>Donation_clergy</th>
+      <th>Lottery</th>
+      <th>Desertion</th>
+      <th>Instruction</th>
+      <th>Prostitutes</th>
+      <th>Distance</th>
+      <th>Area</th>
+      <th>Pop1831</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>E</td>
+      <td>Ain</td>
+      <td>28870</td>
+      <td>15890</td>
+      <td>37</td>
+      <td>5098</td>
+      <td>33120</td>
+      <td>35039</td>
+      <td>2:Med</td>
+      <td>73</td>
+      <td>58</td>
+      <td>11</td>
+      <td>71</td>
+      <td>60</td>
+      <td>69</td>
+      <td>41</td>
+      <td>55</td>
+      <td>46</td>
+      <td>13</td>
+      <td>218.372</td>
+      <td>5762</td>
+      <td>346.03</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>N</td>
+      <td>Aisne</td>
+      <td>26226</td>
+      <td>5521</td>
+      <td>51</td>
+      <td>8901</td>
+      <td>14572</td>
+      <td>12831</td>
+      <td>2:Med</td>
+      <td>22</td>
+      <td>10</td>
+      <td>82</td>
+      <td>4</td>
+      <td>82</td>
+      <td>36</td>
+      <td>38</td>
+      <td>82</td>
+      <td>24</td>
+      <td>327</td>
+      <td>65.945</td>
+      <td>7369</td>
+      <td>513.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>C</td>
+      <td>Allier</td>
+      <td>26747</td>
+      <td>7925</td>
+      <td>13</td>
+      <td>10973</td>
+      <td>17044</td>
+      <td>114121</td>
+      <td>2:Med</td>
+      <td>61</td>
+      <td>66</td>
+      <td>68</td>
+      <td>46</td>
+      <td>42</td>
+      <td>76</td>
+      <td>66</td>
+      <td>16</td>
+      <td>85</td>
+      <td>34</td>
+      <td>161.927</td>
+      <td>7340</td>
+      <td>298.26</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>E</td>
+      <td>Basses-Alpes</td>
+      <td>12935</td>
+      <td>7289</td>
+      <td>46</td>
+      <td>2733</td>
+      <td>23018</td>
+      <td>14238</td>
+      <td>1:Sm</td>
+      <td>76</td>
+      <td>49</td>
+      <td>5</td>
+      <td>70</td>
+      <td>12</td>
+      <td>37</td>
+      <td>80</td>
+      <td>32</td>
+      <td>29</td>
+      <td>2</td>
+      <td>351.399</td>
+      <td>6925</td>
+      <td>155.90</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>E</td>
+      <td>Hautes-Alpes</td>
+      <td>17488</td>
+      <td>8174</td>
+      <td>69</td>
+      <td>6962</td>
+      <td>23076</td>
+      <td>16171</td>
+      <td>1:Sm</td>
+      <td>83</td>
+      <td>65</td>
+      <td>10</td>
+      <td>22</td>
+      <td>23</td>
+      <td>64</td>
+      <td>79</td>
+      <td>35</td>
+      <td>7</td>
+      <td>1</td>
+      <td>320.280</td>
+      <td>5549</td>
+      <td>129.10</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>86</td>
+      <td>W</td>
+      <td>Vienne</td>
+      <td>15010</td>
+      <td>4710</td>
+      <td>25</td>
+      <td>8922</td>
+      <td>35224</td>
+      <td>21851</td>
+      <td>2:Med</td>
+      <td>68</td>
+      <td>43</td>
+      <td>71</td>
+      <td>20</td>
+      <td>1</td>
+      <td>44</td>
+      <td>40</td>
+      <td>38</td>
+      <td>65</td>
+      <td>18</td>
+      <td>170.523</td>
+      <td>6990</td>
+      <td>282.73</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>87</td>
+      <td>C</td>
+      <td>Haute-Vienne</td>
+      <td>16256</td>
+      <td>6402</td>
+      <td>13</td>
+      <td>13817</td>
+      <td>19940</td>
+      <td>33497</td>
+      <td>2:Med</td>
+      <td>67</td>
+      <td>63</td>
+      <td>76</td>
+      <td>68</td>
+      <td>6</td>
+      <td>78</td>
+      <td>55</td>
+      <td>11</td>
+      <td>84</td>
+      <td>7</td>
+      <td>198.874</td>
+      <td>5520</td>
+      <td>285.13</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>88</td>
+      <td>E</td>
+      <td>Vosges</td>
+      <td>18835</td>
+      <td>9044</td>
+      <td>62</td>
+      <td>4040</td>
+      <td>14978</td>
+      <td>33029</td>
+      <td>2:Med</td>
+      <td>82</td>
+      <td>42</td>
+      <td>51</td>
+      <td>58</td>
+      <td>34</td>
+      <td>5</td>
+      <td>14</td>
+      <td>85</td>
+      <td>11</td>
+      <td>43</td>
+      <td>174.477</td>
+      <td>5874</td>
+      <td>397.99</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>89</td>
+      <td>C</td>
+      <td>Yonne</td>
+      <td>18006</td>
+      <td>6516</td>
+      <td>47</td>
+      <td>4276</td>
+      <td>16616</td>
+      <td>12789</td>
+      <td>2:Med</td>
+      <td>30</td>
+      <td>15</td>
+      <td>55</td>
+      <td>32</td>
+      <td>22</td>
+      <td>35</td>
+      <td>51</td>
+      <td>66</td>
+      <td>27</td>
+      <td>272</td>
+      <td>81.797</td>
+      <td>7427</td>
+      <td>352.49</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>200</td>
+      <td>NaN</td>
+      <td>Corse</td>
+      <td>2199</td>
+      <td>4589</td>
+      <td>49</td>
+      <td>37015</td>
+      <td>24743</td>
+      <td>37016</td>
+      <td>2:Med</td>
+      <td>37</td>
+      <td>83</td>
+      <td>1</td>
+      <td>81</td>
+      <td>2</td>
+      <td>84</td>
+      <td>83</td>
+      <td>9</td>
+      <td>25</td>
+      <td>1</td>
+      <td>539.213</td>
+      <td>8680</td>
+      <td>195.41</td>
+    </tr>
+  </tbody>
+</table>
+<p>86 rows × 23 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="predicting-gambling">
+<h2><span class="section-number">29.3. </span>Predicting Gambling<a class="headerlink" href="#predicting-gambling" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Lottery</span></code> Per capita wager on Royal Lottery. Ranked ratio of the proceeds bet on the royal lottery to population— Average for the years 1822-1826.  (Compte rendus par le ministre des finances)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Literacy</span></code> Percent Read &amp; Write: Percent of military conscripts who can read and write.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pop1831</span></code> Population in 1831, taken from Angeville (1836), Essai sur la Statis-
+tique de la Population francais, in 1000s.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Notice this is an R style of Analsysis</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;Lottery ~ Literacy + np.log(Pop1831)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                Lottery   R-squared:                       0.348
+Model:                            OLS   Adj. R-squared:                  0.333
+Method:                 Least Squares   F-statistic:                     22.20
+Date:                Mon, 04 Oct 2021   Prob (F-statistic):           1.90e-08
+Time:                        18:55:31   Log-Likelihood:                -379.82
+No. Observations:                  86   AIC:                             765.6
+Df Residuals:                      83   BIC:                             773.0
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P&gt;|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+Intercept         246.4341     35.233      6.995      0.000     176.358     316.510
+Literacy           -0.4889      0.128     -3.832      0.000      -0.743      -0.235
+np.log(Pop1831)   -31.3114      5.977     -5.239      0.000     -43.199     -19.424
+==============================================================================
+Omnibus:                        3.713   Durbin-Watson:                   2.019
+Prob(Omnibus):                  0.156   Jarque-Bera (JB):                3.394
+Skew:                          -0.487   Prob(JB):                        0.183
+Kurtosis:                       3.003   Cond. No.                         702.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="alternate-syntax">
+<h2><span class="section-number">29.4. </span>Alternate Syntax<a class="headerlink" href="#alternate-syntax" title="Permalink to this headline">#</a></h2>
+<p>This is a more pure way of</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ln_Pop1831&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Pop1831&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Literacy&#39;</span><span class="p">,</span> <span class="s1">&#39;ln_Pop1831&#39;</span><span class="p">]]</span> <span class="c1"># here we have 2 variables for the multiple linear regression. </span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Lottery&#39;</span><span class="p">]</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># adding a constant</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> 
+<span class="n">print_model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">print_model</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                Lottery   R-squared:                       0.348
+Model:                            OLS   Adj. R-squared:                  0.333
+Method:                 Least Squares   F-statistic:                     22.20
+Date:                Mon, 04 Oct 2021   Prob (F-statistic):           1.90e-08
+Time:                        18:55:32   Log-Likelihood:                -379.82
+No. Observations:                  86   AIC:                             765.6
+Df Residuals:                      83   BIC:                             773.0
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        246.4341     35.233      6.995      0.000     176.358     316.510
+Literacy      -0.4889      0.128     -3.832      0.000      -0.743      -0.235
+ln_Pop1831   -31.3114      5.977     -5.239      0.000     -43.199     -19.424
+==============================================================================
+Omnibus:                        3.713   Durbin-Watson:                   2.019
+Prob(Omnibus):                  0.156   Jarque-Bera (JB):                3.394
+Skew:                          -0.487   Prob(JB):                        0.183
+Kurtosis:                       3.003   Cond. No.                         702.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="use-stargazer">
+<h3><span class="section-number">29.4.1. </span>Use Stargazer<a class="headerlink" href="#use-stargazer" title="Permalink to this headline">#</a></h3>
+<p>Show multiple different models easily using <a class="reference external" href="https://github.com/mwburke/stargazer">Stargazer</a>, a Python implementation of an R-package for implementing stepwise regression.</p>
+<p>Let’s add a different model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install Stargazer
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: Stargazer in /usr/local/lib/python3.7/dist-packages (0.0.5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">stargazer.stargazer</span> <span class="kn">import</span> <span class="n">Stargazer</span><span class="p">,</span> <span class="n">LineLocation</span>
+
+<span class="n">X2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Literacy&#39;</span><span class="p">,</span> <span class="s1">&#39;ln_Pop1831&#39;</span><span class="p">,</span><span class="s1">&#39;Crime_pers&#39;</span><span class="p">,</span>	<span class="s1">&#39;Crime_prop&#39;</span><span class="p">]]</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span> <span class="c1"># adding a constant</span>
+<span class="n">model2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">stargazer</span> <span class="o">=</span> <span class="n">Stargazer</span><span class="p">([</span><span class="n">model</span><span class="p">,</span><span class="n">model2</span><span class="p">])</span>
+<span class="n">stargazer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="text-align:center"><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:Lottery</em></td></tr><tr><td style="text-align:left"></td><tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Crime_pers</td><td></td><td>0.000<sup></sup></td></tr><tr><td style="text-align:left"></td><td></td><td>(0.000)</td></tr><tr><td style="text-align:left">Crime_prop</td><td></td><td>0.002<sup>**</sup></td></tr><tr><td style="text-align:left"></td><td></td><td>(0.001)</td></tr><tr><td style="text-align:left">Literacy</td><td>-0.489<sup>***</sup></td><td>-0.365<sup>***</sup></td></tr><tr><td style="text-align:left"></td><td>(0.128)</td><td>(0.133)</td></tr><tr><td style="text-align:left">const</td><td>246.434<sup>***</sup></td><td>215.240<sup>***</sup></td></tr><tr><td style="text-align:left"></td><td>(35.233)</td><td>(38.890)</td></tr><tr><td style="text-align:left">ln_Pop1831</td><td>-31.311<sup>***</sup></td><td>-30.191<sup>***</sup></td></tr><tr><td style="text-align:left"></td><td>(5.977)</td><td>(6.441)</td></tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align: left">Observations</td><td>86</td><td>86</td></tr><tr><td style="text-align: left">R<sup>2</sup></td><td>0.348</td><td>0.409</td></tr><tr><td style="text-align: left">Adjusted R<sup>2</sup></td><td>0.333</td><td>0.380</td></tr><tr><td style="text-align: left">Residual Std. Error</td><td>20.397 (df=83)</td><td>19.667 (df=81)</td></tr><tr><td style="text-align: left">F Statistic</td><td>22.196<sup>***</sup> (df=2; 83)</td><td>14.003<sup>***</sup> (df=4; 81)</td></tr><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align: left">Note:</td>
+ <td colspan="2" style="text-align: right">
+  <sup>*</sup>p&lt;0.1;
+  <sup>**</sup>p&lt;0.05;
+  <sup>***</sup>p&lt;0.01
+ </td></tr></table></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge-compare-results">
+<h2><span class="section-number">29.5. </span>Challenge: Compare Results<a class="headerlink" href="#challenge-compare-results" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Explore another model of <code class="docutils literal notranslate"><span class="pre">Lottery</span></code> and add it to the Stargazer results.</p></li>
+<li><p>Explore the stargazer documentation and customize the order of the variables, putting the constant and then the variables in all models on top (as is typically done).</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="nb-05-03-ridge-lasso-python.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">28. </span>Lasso Ridge Regression</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="nb-06-01-introduction-pca.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">30. </span>Introduction to Principal Component Analysis</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jason Kuruzovich<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

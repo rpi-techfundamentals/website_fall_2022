@@ -1,0 +1,1326 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>41. Lecture-21: Introduction to Natural Language Processing &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="43. IMDB" href="nb-07-08-fastai-imdb.html" />
+    <link rel="prev" title="39. Sentiment Analysis" href="nb-07-06-sentiment.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-32817743-6', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Introduction to Machine Learning Applications
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OVERVIEW
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/schedule.html">
+   Schedule
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  NOTEBOOKS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-01-python-overview.html">
+   1. Overview of Python Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-02-datastructures.html">
+   2. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-03-numpy.html">
+   3. Overview of Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-04-pandas.html">
+   4. Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-01-conditionals-loops.html">
+   5. Conditional Statements and Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-02-functions.html">
+   6. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-02a-pandas-functions.html">
+   7. Introduction to Apply Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-03-null-values.html">
+   8. Null Values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-04-groupby.html">
+   9. Groupby and Pivot Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-04-pivottable.html">
+   10. More Pivottables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-05-kaggle-baseline.html">
+   11. Kaggle Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-EX-Exercise1.html">
+   12. Exercise 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-01-features-dummies.html">
+   13. Feature Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-02-strings-regular-expressions.html">
+   15. String Manipulation and Regular Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-03-visualization-python-seaborn.html">
+   16. Introduction to Seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-04-intro-python-webmining.html">
+   17. Web Mining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-06-matplotlib.html">
+   18. MatplotLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-01-neural-networks.html">
+   19. Neural Networks and the Simplist XOR Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-02-train-test-split.html">
+   20. Train Test Splits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-03-intro-logistic-knn.html">
+   21. Classification with Scikit-learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-04-knn.html">
+   22. KNN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-05-revisit-titanic0.html">
+   23. Titanic Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-06-revisit-titanic.html">
+   24. Titanic Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-07-titanic-features.html">
+   25. Basic Text Feature Creation in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-05-01-matrix-regression-gradient-decent-python.html">
+   26. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-05-02-regression-boston-housing-python.html">
+   27. Boston Housing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-05-03-ridge-lasso-python.html">
+   28. Lasso Ridge Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-05-04-stats-models.html">
+   29. Regression with Stats-Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-01-introduction-pca.html">
+   30. Introduction to Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-02-pca2.html">
+   31. In Depth: Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-03-kmeans.html">
+   32. k-Means Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-04-covid19.html">
+   33. Coronavirus Data Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-00-corpus-simple.html">
+   34. Introduction to Text Mining in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-01-intro-nlp.html">
+   35. Natural Language Toolkit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-02-scikit-learn-text.html">
+   36. Bag-of-Words Using Scikit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-03-what-cooking-python.html">
+   37. What’s Cooking in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-05-bag-popcorn-bag-words.html">
+   38. Bag of Words
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-06-sentiment.html">
+   39. Sentiment Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   41. Lecture-21: Introduction to Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-08-fastai-imdb.html">
+   43. IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-09-intro2.html">
+   44. Introduction to Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-10-vectorization.html">
+   45. Vectorizors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-08-01-midterm_sample.html">
+   47. Sample Coding Midterm.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-09-01-time-series.html">
+   48. Time Series Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-09-02-forcasting-rossman.html">
+   49. Panel Data vs Time Series Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-00-evaluation.html">
+   51. Evaluation of Classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-00-neural-networks.html">
+   52. Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-01-tensorflow.html">
+   53. Tensorflow Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-02-tensor-tutorial.html">
+   56. Pytorch Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-03-pytorch-iris.html">
+   57. Revisiting IRIS with PyTorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-04-covnet-tutorial.html">
+   58. Convolutional Neural Network with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-04-pytorch-explainer.html">
+   59. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-04_pytorch_mnist1.html">
+   60. Pytorch Advantages vs Tensorflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-05-pytorch-mnist.html">
+   61. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-06-regression-bh-pytorch.html">
+   62. Revisting Boston Housing with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-06_tensorflow_minst.html">
+   63. Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-07-titanic-fastai.html">
+   64. Titanic Fastai
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-08-ludwig.html">
+   65. Ludwig
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-09-vectorization-transfer.html">
+   66. Transfer Learning - NLP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-10-deeplearningtitanic.html">
+   68. Titanic Classification - Deep Learning Tensorflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-11-deeplearningregression.html">
+   70. Regression with Tensorflow/Keras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-99_intro_tensorflow.html">
+   71. Tensorflow Graph Creation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  ASSIGNMENTS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-1.html">
+   1. Homework-1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-2.html">
+   14. Homework-2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-3.html">
+   31. Homework-3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-4.html">
+   42. Homework-4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-5.html">
+   54. Homework-5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-7.html">
+   62. Homework-7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-final.html">
+   77. Final Exam
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rpi.box.com/s/2rivfabp5r2sc224nwgv3en1cmks3cec">
+   Box Link
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/fastai/fastbook">
+   Fast.ai Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.tensorflow.org/tutorials">
+   Tensorflow Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://pytorch.org/tutorials/">
+   Pytorch Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.kaggle.com/learn/intro-to-deep-learning">
+   Kaggle Introduction to Deep Learning Course
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/capstone.html">
+   <strong>
+    The MS Business Analytics Capstone Course
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/rpi-techfundamentals/website_fall_2021/master?urlpath=tree/site/notebooks/nb-07-07-sentimentB.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/rpi-techfundamentals/website_fall_2021/blob/master/site/notebooks/nb-07-07-sentimentB.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2021"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2021/issues/new?title=Issue%20on%20page%20%2Fnotebooks/nb-07-07-sentimentB.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/nb-07-07-sentimentB.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   41. Lecture-21: Introduction to Natural Language Processing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-sentiment-analysis">
+     41.1. What is sentiment analysis?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sentiment-analysis-is-the-detection-of-attitudes-enduring-affectively-colored-beliefs-dispositions-towards-objects-or-persons">
+     41.2. Sentiment analysis is the detection of
+     <strong>
+      attitudes
+     </strong>
+     “enduring, affectively colored beliefs, dispositions towards objects or persons”
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#topic-modeling-latent-dirichlet-allocation">
+     41.3. Topic Modeling – Latent Dirichlet Allocation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#topic-model-is-a-type-of-statistical-model-to-discover-the-abstract-latent-topics-present-in-a-given-set-of-documents">
+       41.3.1. Topic model is a type of statistical model to discover the abstract latent topics present in a given set of documents.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#topic-modeling-allows-us-to-discover-the-latent-semantic-structures-in-a-text-corpus-through-learning-probabilistic-distributions-over-words-present-in-the-document">
+       41.3.2. Topic modeling allows us to discover the latent semantic structures in a text corpus through learning probabilistic distributions over words present in the document.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#it-is-a-generative-statistical-model-that-allows-different-classes-of-observations-to-be-explained-by-groups-of-unobserved-data-similar-to-clustering">
+       41.3.3. It is a generative statistical model that allows different classes of observations to be explained by groups of unobserved data similar to clustering.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#latent-dirichlet-allocation-lda-was-proposed-by-blei-et-al-in-2003-lda-assumes-that-the-document-is-a-mixture-of-topics-where-each-topic-is-a-mixture-of-words-assigned-to-a-topic-where-the-topic-distribution-is-assumed-to-have-a-dirichlet-prior">
+       41.3.4. Latent Dirichlet Allocation (LDA) was proposed by Blei et al. in 2003 LDA assumes that the document is a mixture of topics where each topic is a mixture of words assigned to a topic where the topic distribution is assumed to have a dirichlet prior.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-consider-the-python-package-gensimto-perform-topic-modeling-over-the-online-reviews-in-our-notebook">
+       41.3.5. We consider the Python package “gensim”to perform topic modeling over the online reviews in our notebook.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#word-embeddings">
+     41.4. Word Embeddings
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bag-of-words-model-and-tf-idf-computations">
+     41.5. Bag of words model and TF-IDF computations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tf-idf-stands-for-term-frequency-inverse-document-frequency-the-tf-idf-weight-is-a-weight-often-used-in-information-retrieval-and-text-mining-variations-of-the-tf-idf-weighting-scheme-are-often-used-by-search-engines-in-scoring-and-ranking-a-documents-relevance-given-a-query">
+       41.5.1. tf-idf stands for Term frequency-inverse document frequency. The tf-idf weight is a weight often used in information retrieval and text mining. Variations of the tf-idf weighting scheme are often used by search engines in scoring and ranking a document’s relevance given a query.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#this-weight-is-a-statistical-measure-used-to-evaluate-how-important-a-word-is-to-a-document-in-a-collection-or-corpus-the-importance-increases-proportionally-to-the-number-of-times-a-word-appears-in-the-document-but-is-offset-by-the-frequency-of-the-word-in-the-corpus-data-set">
+       41.5.2. This weight is a statistical measure used to evaluate how important a word is to a document in a collection or corpus. The importance increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus (data-set).
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#class-exercise">
+   42. Class exercise
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-the-2nd-file-and-preprocess-it-by-removing-non-alphanumeric-characters">
+     42.1. 1. Read the 2nd file and preprocess it by removing non-alphanumeric characters
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perform-sentiment-analysis-topic-modeling-and-identify-the-most-commonly-co-occurring-words-with-religion-politics-guns">
+     42.2. 2. Perform sentiment analysis, topic modeling and identify the most commonly co-occurring words with “religion”, “politics”, “guns”
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-a-bag-of-words-model-and-compute-tf-idf-the-query-pizza">
+     42.3. 3. Build a bag of words model and compute TF-IDF the query “pizza”.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture-21: Introduction to Natural Language Processing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   41. Lecture-21: Introduction to Natural Language Processing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-sentiment-analysis">
+     41.1. What is sentiment analysis?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sentiment-analysis-is-the-detection-of-attitudes-enduring-affectively-colored-beliefs-dispositions-towards-objects-or-persons">
+     41.2. Sentiment analysis is the detection of
+     <strong>
+      attitudes
+     </strong>
+     “enduring, affectively colored beliefs, dispositions towards objects or persons”
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#topic-modeling-latent-dirichlet-allocation">
+     41.3. Topic Modeling – Latent Dirichlet Allocation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#topic-model-is-a-type-of-statistical-model-to-discover-the-abstract-latent-topics-present-in-a-given-set-of-documents">
+       41.3.1. Topic model is a type of statistical model to discover the abstract latent topics present in a given set of documents.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#topic-modeling-allows-us-to-discover-the-latent-semantic-structures-in-a-text-corpus-through-learning-probabilistic-distributions-over-words-present-in-the-document">
+       41.3.2. Topic modeling allows us to discover the latent semantic structures in a text corpus through learning probabilistic distributions over words present in the document.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#it-is-a-generative-statistical-model-that-allows-different-classes-of-observations-to-be-explained-by-groups-of-unobserved-data-similar-to-clustering">
+       41.3.3. It is a generative statistical model that allows different classes of observations to be explained by groups of unobserved data similar to clustering.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#latent-dirichlet-allocation-lda-was-proposed-by-blei-et-al-in-2003-lda-assumes-that-the-document-is-a-mixture-of-topics-where-each-topic-is-a-mixture-of-words-assigned-to-a-topic-where-the-topic-distribution-is-assumed-to-have-a-dirichlet-prior">
+       41.3.4. Latent Dirichlet Allocation (LDA) was proposed by Blei et al. in 2003 LDA assumes that the document is a mixture of topics where each topic is a mixture of words assigned to a topic where the topic distribution is assumed to have a dirichlet prior.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-consider-the-python-package-gensimto-perform-topic-modeling-over-the-online-reviews-in-our-notebook">
+       41.3.5. We consider the Python package “gensim”to perform topic modeling over the online reviews in our notebook.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#word-embeddings">
+     41.4. Word Embeddings
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bag-of-words-model-and-tf-idf-computations">
+     41.5. Bag of words model and TF-IDF computations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tf-idf-stands-for-term-frequency-inverse-document-frequency-the-tf-idf-weight-is-a-weight-often-used-in-information-retrieval-and-text-mining-variations-of-the-tf-idf-weighting-scheme-are-often-used-by-search-engines-in-scoring-and-ranking-a-documents-relevance-given-a-query">
+       41.5.1. tf-idf stands for Term frequency-inverse document frequency. The tf-idf weight is a weight often used in information retrieval and text mining. Variations of the tf-idf weighting scheme are often used by search engines in scoring and ranking a document’s relevance given a query.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#this-weight-is-a-statistical-measure-used-to-evaluate-how-important-a-word-is-to-a-document-in-a-collection-or-corpus-the-importance-increases-proportionally-to-the-number-of-times-a-word-appears-in-the-document-but-is-offset-by-the-frequency-of-the-word-in-the-corpus-data-set">
+       41.5.2. This weight is a statistical measure used to evaluate how important a word is to a document in a collection or corpus. The importance increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus (data-set).
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#class-exercise">
+   42. Class exercise
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-the-2nd-file-and-preprocess-it-by-removing-non-alphanumeric-characters">
+     42.1. 1. Read the 2nd file and preprocess it by removing non-alphanumeric characters
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perform-sentiment-analysis-topic-modeling-and-identify-the-most-commonly-co-occurring-words-with-religion-politics-guns">
+     42.2. 2. Perform sentiment analysis, topic modeling and identify the most commonly co-occurring words with “religion”, “politics”, “guns”
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-a-bag-of-words-model-and-compute-tf-idf-the-query-pizza">
+     42.3. 3. Build a bag of words model and compute TF-IDF the query “pizza”.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="section" id="lecture-21-introduction-to-natural-language-processing">
+<h1><span class="section-number">41. </span>Lecture-21: Introduction to Natural Language Processing<a class="headerlink" href="#lecture-21-introduction-to-natural-language-processing" title="Permalink to this headline">#</a></h1>
+<p>###Sentiment Analysis</p>
+<div class="section" id="what-is-sentiment-analysis">
+<h2><span class="section-number">41.1. </span>What is sentiment analysis?<a class="headerlink" href="#what-is-sentiment-analysis" title="Permalink to this headline">#</a></h2>
+<p>Take a few movie reviews as examples (taken from Prof. Jurafsky’s lecture notes):</p>
+<ol class="simple">
+<li><p>unbelievably disappointing</p></li>
+<li><p>Full of zany characters and richly applied satire, and some great plot twists</p></li>
+<li><p>This is the greatest screwball comedy ever filmed</p></li>
+<li><p>It was pathetic. The worst part about it was the boxing scenes.</p></li>
+</ol>
+<p><em>Positive</em>: 2, 3
+<em>Negative</em>: 1, 4</p>
+<p><img alt="alt text" src="https://www.dropbox.com/s/zmowjdhfodh9na5/danlecture.tif" />
+Google shopping; Bing shopping; Twitter sentiment about airline customer service</p>
+</div>
+<div class="section" id="sentiment-analysis-is-the-detection-of-attitudes-enduring-affectively-colored-beliefs-dispositions-towards-objects-or-persons">
+<h2><span class="section-number">41.2. </span>Sentiment analysis is the detection of <strong>attitudes</strong> “enduring, affectively colored beliefs, dispositions towards objects or persons”<a class="headerlink" href="#sentiment-analysis-is-the-detection-of-attitudes-enduring-affectively-colored-beliefs-dispositions-towards-objects-or-persons" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p><strong>Holder (source)</strong> of attitude</p></li>
+<li><p><strong>Target (aspect)</strong> of attitude</p></li>
+<li><p><strong>Type</strong> of attitude</p>
+<ul class="simple">
+<li><p>From a set of types</p>
+<ul>
+<li><p>Like, love, hate, value, desire, etc.</p></li>
+</ul>
+</li>
+<li><p>Or (more commonly) simple weighted polarity:</p>
+<ul>
+<li><p>positive, negative, neutral, together with strength</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Text</strong> containing the attitude</p>
+<ul class="simple">
+<li><p>Sentence or entire document</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># We will use vader sentiment analysis here considering short text phrases
+!pip install vaderSentiment
+import vaderSentiment
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: vaderSentiment in /usr/local/lib/python3.6/dist-packages (3.2.1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">measure_sentiment</span><span class="p">(</span><span class="n">textval</span><span class="p">):</span>
+  <span class="n">sentObj</span> <span class="o">=</span> <span class="n">SentimentIntensityAnalyzer</span><span class="p">()</span> 
+  <span class="n">sentimentvals</span> <span class="o">=</span> <span class="n">sentObj</span><span class="o">.</span><span class="n">polarity_scores</span><span class="p">(</span><span class="n">textval</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">sentimentvals</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">sentimentvals</span><span class="p">[</span><span class="s1">&#39;compound&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">0.5</span><span class="p">:</span> 
+    <span class="k">return</span><span class="p">(</span><span class="s2">&quot;Positive&quot;</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">sentimentvals</span><span class="p">[</span><span class="s1">&#39;compound&#39;</span><span class="p">]</span><span class="o">&lt;=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">:</span> 
+    <span class="k">return</span><span class="p">(</span><span class="s2">&quot;Negative&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span><span class="p">(</span><span class="s2">&quot;Neutral&quot;</span><span class="p">)</span>
+
+<span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;I love the beautiful weather today. It is absolutely pleasant.&quot;</span>
+<span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;Unbelievably disappointing&quot;</span>
+<span class="n">text3</span> <span class="o">=</span> <span class="s2">&quot;Full of zany characters and richly applied satire, and some great plot twists&quot;</span>
+<span class="n">text4</span> <span class="o">=</span> <span class="s2">&quot;This is the greatest screwball comedy ever filmed&quot;</span>
+<span class="n">text5</span> <span class="o">=</span> <span class="s2">&quot;This is the greatest screwball comedy ever filmed&quot;</span>
+<span class="n">text6</span> <span class="o">=</span> <span class="s2">&quot;It was pathetic. The worst part about it was the boxing scenes.&quot;</span>
+
+<span class="c1">#print(measure_sentiment(text1))</span>
+<span class="c1">#print(measure_sentiment(text2))</span>
+<span class="c1">#print(measure_sentiment(text3))</span>
+<span class="c1">#print(measure_sentiment(text4))</span>
+<span class="c1">#print(measure_sentiment(text5))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">measure_sentiment</span><span class="p">(</span><span class="n">text6</span><span class="p">))</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="topic-modeling-latent-dirichlet-allocation">
+<h2><span class="section-number">41.3. </span>Topic Modeling – Latent Dirichlet Allocation<a class="headerlink" href="#topic-modeling-latent-dirichlet-allocation" title="Permalink to this headline">#</a></h2>
+<div class="section" id="topic-model-is-a-type-of-statistical-model-to-discover-the-abstract-latent-topics-present-in-a-given-set-of-documents">
+<h3><span class="section-number">41.3.1. </span>Topic model is a type of statistical model to discover the abstract latent topics present in a given set of documents.<a class="headerlink" href="#topic-model-is-a-type-of-statistical-model-to-discover-the-abstract-latent-topics-present-in-a-given-set-of-documents" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="topic-modeling-allows-us-to-discover-the-latent-semantic-structures-in-a-text-corpus-through-learning-probabilistic-distributions-over-words-present-in-the-document">
+<h3><span class="section-number">41.3.2. </span>Topic modeling allows us to discover the latent semantic structures in a text corpus through learning probabilistic distributions over words present in the document.<a class="headerlink" href="#topic-modeling-allows-us-to-discover-the-latent-semantic-structures-in-a-text-corpus-through-learning-probabilistic-distributions-over-words-present-in-the-document" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="it-is-a-generative-statistical-model-that-allows-different-classes-of-observations-to-be-explained-by-groups-of-unobserved-data-similar-to-clustering">
+<h3><span class="section-number">41.3.3. </span>It is a generative statistical model that allows different classes of observations to be explained by groups of unobserved data similar to clustering.<a class="headerlink" href="#it-is-a-generative-statistical-model-that-allows-different-classes-of-observations-to-be-explained-by-groups-of-unobserved-data-similar-to-clustering" title="Permalink to this headline">#</a></h3>
+<p><strong>It assumes that documents are probability distributions over topics and topics are probability distributions over words.</strong></p>
+</div>
+<div class="section" id="latent-dirichlet-allocation-lda-was-proposed-by-blei-et-al-in-2003-lda-assumes-that-the-document-is-a-mixture-of-topics-where-each-topic-is-a-mixture-of-words-assigned-to-a-topic-where-the-topic-distribution-is-assumed-to-have-a-dirichlet-prior">
+<h3><span class="section-number">41.3.4. </span>Latent Dirichlet Allocation (LDA) was proposed by Blei et al. in 2003 LDA assumes that the document is a mixture of topics where each topic is a mixture of words assigned to a topic where the topic distribution is assumed to have a dirichlet prior.<a class="headerlink" href="#latent-dirichlet-allocation-lda-was-proposed-by-blei-et-al-in-2003-lda-assumes-that-the-document-is-a-mixture-of-topics-where-each-topic-is-a-mixture-of-words-assigned-to-a-topic-where-the-topic-distribution-is-assumed-to-have-a-dirichlet-prior" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="we-consider-the-python-package-gensimto-perform-topic-modeling-over-the-online-reviews-in-our-notebook">
+<h3><span class="section-number">41.3.5. </span>We consider the Python package “gensim”to perform topic modeling over the online reviews in our notebook.<a class="headerlink" href="#we-consider-the-python-package-gensimto-perform-topic-modeling-over-the-online-reviews-in-our-notebook" title="Permalink to this headline">#</a></h3>
+<p><img alt="alt text" src="https://www.dropbox.com/s/wk87yos1jmjnm26/lda.jpeg" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+#Load the file first
+!wget https://www.dropbox.com/s/o8lxi6yrezmt5em/reviews.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2019-11-07 22:03:45--  https://www.dropbox.com/s/o8lxi6yrezmt5em/reviews.txt
+Resolving www.dropbox.com (www.dropbox.com)... 162.125.65.1, 2620:100:6021:1::a27d:4101
+Connecting to www.dropbox.com (www.dropbox.com)|162.125.65.1|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: /s/raw/o8lxi6yrezmt5em/reviews.txt [following]
+--2019-11-07 22:03:45--  https://www.dropbox.com/s/raw/o8lxi6yrezmt5em/reviews.txt
+Reusing existing connection to www.dropbox.com:443.
+HTTP request sent, awaiting response... 302 Found
+Location: https://uca49837b6228b70be8d77e61bc1.dl.dropboxusercontent.com/cd/0/inline/Ar_TmvTj6aB8uANEqIJKbxZu2qjWL2AIrR9DGtrYalyog06i9GD2Hv6zuVGLnpHoj7Tp-SDZUq1NmgtzS1w9p-RfSoXlIdmrOad1piGku8eWddl-nWPXPcD6-6dTI-0tF4g/file# [following]
+--2019-11-07 22:03:46--  https://uca49837b6228b70be8d77e61bc1.dl.dropboxusercontent.com/cd/0/inline/Ar_TmvTj6aB8uANEqIJKbxZu2qjWL2AIrR9DGtrYalyog06i9GD2Hv6zuVGLnpHoj7Tp-SDZUq1NmgtzS1w9p-RfSoXlIdmrOad1piGku8eWddl-nWPXPcD6-6dTI-0tF4g/file
+Resolving uca49837b6228b70be8d77e61bc1.dl.dropboxusercontent.com (uca49837b6228b70be8d77e61bc1.dl.dropboxusercontent.com)... 162.125.65.6, 2620:100:6021:6::a27d:4106
+Connecting to uca49837b6228b70be8d77e61bc1.dl.dropboxusercontent.com (uca49837b6228b70be8d77e61bc1.dl.dropboxusercontent.com)|162.125.65.6|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3851 (3.8K) [text/plain]
+Saving to: ‘reviews.txt’
+
+reviews.txt         100%[===================&gt;]   3.76K  --.-KB/s    in 0s      
+
+2019-11-07 22:03:46 (388 MB/s) - ‘reviews.txt’ saved [3851/3851]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gensim</span>
+<span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">corpora</span>
+<span class="kn">from</span> <span class="nn">gensim.utils</span> <span class="kn">import</span> <span class="n">simple_preprocess</span>
+<span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">CoherenceModel</span>
+
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span> 
+<span class="c1">#from nltk.tokenize import word_tokenize</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">sent_tokenize</span> 
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;averaged_perceptron_tagger&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /root/nltk_data...
+[nltk_data]   Unzipping taggers/averaged_perceptron_tagger.zip.
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sent_to_words</span><span class="p">(</span><span class="n">sentences</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+        <span class="k">yield</span><span class="p">(</span><span class="n">gensim</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">simple_preprocess</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">sentence</span><span class="p">),</span> <span class="n">deacc</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># deacc=True removes punctuations</span>
+
+<span class="k">def</span> <span class="nf">remove_stopwords</span><span class="p">(</span><span class="n">texts</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">simple_preprocess</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">))</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>
+
+<span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;reviews.txt&#39;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+<span class="n">sentences</span><span class="o">=</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">data_words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sent_to_words</span><span class="p">(</span><span class="n">sentences</span><span class="p">))</span>
+<span class="n">data_words_nostops</span> <span class="o">=</span> <span class="n">remove_stopwords</span><span class="p">(</span><span class="n">data_words</span><span class="p">)</span>
+
+<span class="n">dictionary</span> <span class="o">=</span> <span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">data_words_nostops</span><span class="p">)</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">data_words_nostops</span><span class="p">]</span>
+
+<span class="n">NUM_TOPICS</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ldamodel</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ldamodel</span><span class="o">.</span><span class="n">LdaModel</span><span class="p">(</span><span class="n">corpus</span><span class="p">,</span> <span class="n">num_topics</span> <span class="o">=</span> <span class="n">NUM_TOPICS</span><span class="p">,</span> <span class="n">id2word</span><span class="o">=</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">passes</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ldamodel is built&quot;</span><span class="p">)</span>
+<span class="c1">#ldamodel.save(&#39;model5.gensim&#39;)</span>
+<span class="n">topics</span> <span class="o">=</span> <span class="n">ldamodel</span><span class="o">.</span><span class="n">print_topics</span><span class="p">(</span><span class="n">num_words</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="word-embeddings">
+<h2><span class="section-number">41.4. </span>Word Embeddings<a class="headerlink" href="#word-embeddings" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="p">(</span><span class="n">data_words_nostops</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#print(model.most_similar(&quot;fish&quot;, topn=10))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;actual&#39;, 0.24399515986442566), (&#39;blue&#39;, 0.23981201648712158), (&#39;burgers&#39;, 0.23935973644256592), (&#39;fish&#39;, 0.22530747950077057), (&#39;hole&#39;, 0.2182062566280365), (&#39;bit&#39;, 0.20433926582336426), (&#39;may&#39;, 0.20417353510856628), (&#39;little&#39;, 0.1970674693584442), (&#39;refills&#39;, 0.19307652115821838), (&#39;sign&#39;, 0.19287416338920593)]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.6/dist-packages/ipykernel_launcher.py:4: DeprecationWarning: Call to deprecated `most_similar` (Method will be removed in 4.0.0, use self.wv.most_similar() instead).
+  after removing the cwd from sys.path.
+/usr/local/lib/python3.6/dist-packages/gensim/matutils.py:737: FutureWarning: Conversion of the second argument of issubdtype from `int` to `np.signedinteger` is deprecated. In future, it will be treated as `np.int64 == np.dtype(int).type`.
+  if np.issubdtype(vec.dtype, np.int):
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bag-of-words-model-and-tf-idf-computations">
+<h2><span class="section-number">41.5. </span>Bag of words model and TF-IDF computations<a class="headerlink" href="#bag-of-words-model-and-tf-idf-computations" title="Permalink to this headline">#</a></h2>
+<div class="section" id="tf-idf-stands-for-term-frequency-inverse-document-frequency-the-tf-idf-weight-is-a-weight-often-used-in-information-retrieval-and-text-mining-variations-of-the-tf-idf-weighting-scheme-are-often-used-by-search-engines-in-scoring-and-ranking-a-documents-relevance-given-a-query">
+<h3><span class="section-number">41.5.1. </span>tf-idf stands for Term frequency-inverse document frequency. The tf-idf weight is a weight often used in information retrieval and text mining. Variations of the tf-idf weighting scheme are often used by search engines in scoring and ranking a document’s relevance given a query.<a class="headerlink" href="#tf-idf-stands-for-term-frequency-inverse-document-frequency-the-tf-idf-weight-is-a-weight-often-used-in-information-retrieval-and-text-mining-variations-of-the-tf-idf-weighting-scheme-are-often-used-by-search-engines-in-scoring-and-ranking-a-documents-relevance-given-a-query" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="this-weight-is-a-statistical-measure-used-to-evaluate-how-important-a-word-is-to-a-document-in-a-collection-or-corpus-the-importance-increases-proportionally-to-the-number-of-times-a-word-appears-in-the-document-but-is-offset-by-the-frequency-of-the-word-in-the-corpus-data-set">
+<h3><span class="section-number">41.5.2. </span>This weight is a statistical measure used to evaluate how important a word is to a document in a collection or corpus. The importance increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus (data-set).<a class="headerlink" href="#this-weight-is-a-statistical-measure-used-to-evaluate-how-important-a-word-is-to-a-document-in-a-collection-or-corpus-the-importance-increases-proportionally-to-the-number-of-times-a-word-appears-in-the-document-but-is-offset-by-the-frequency-of-the-word-in-the-corpus-data-set" title="Permalink to this headline">#</a></h3>
+<p><strong>STEP-1: Normalized Term Frequency (tf)</strong> – tf(t, d) = N(t, d) / ||D||
+wherein, ||D|| = Total number of term in the document</p>
+<p>tf(t, d) = term frequency for a term t in document d.</p>
+<p>N(t, d)  = number of times a term t occurs in document d</p>
+<p><strong>STEP-2: Inverse Document Frequency (idf)</strong> –
+idf(t) = N/ df(t) = N/N(t)</p>
+<p>idf(t) = log(N/ df(t))</p>
+<p>idf(pizza) = log(Total Number Of Documents / Number Of Documents with term pizza in it)</p>
+<p><strong>STEP-3: tf-idf Scoring</strong></p>
+<p>tf-idf(t, d) = tf(t, d)* idf(t, d)</p>
+<p>Example:</p>
+<p>Consider a document containing 100 words wherein the word kitty appears 3 times. The term frequency (i.e., tf) for kitty is then (3 / 100) = 0.03. Now, assume we have 10 million documents and the word kitty appears in one thousand of these. Then, the inverse document frequency (i.e., idf) is calculated as log(10,000,000 / 1,000) = 4. Thus, the Tf-idf weight is the product of these quantities: 0.03 * 4 = 0.12.</p>
+<p>Doc1: I love delicious pizza
+Doc2: Pizza is delicious
+Doc3: Kitties love me</p>
+</div>
+</div>
+</div>
+<div class="section" id="class-exercise">
+<h1><span class="section-number">42. </span>Class exercise<a class="headerlink" href="#class-exercise" title="Permalink to this headline">#</a></h1>
+<p>Data files we use for this exercise are here: <a class="reference external" href="https://www.dropbox.com/s/cvafrg25ljde5gr/Lecture21_exercise_1.txt?dl=0">https://www.dropbox.com/s/cvafrg25ljde5gr/Lecture21_exercise_1.txt?dl=0</a></p>
+<p><a class="reference external" href="https://www.dropbox.com/s/9lqnclea9bs9cdv/lecture21_exercise_2.txt?dl=0">https://www.dropbox.com/s/9lqnclea9bs9cdv/lecture21_exercise_2.txt?dl=0</a></p>
+<div class="section" id="read-the-2nd-file-and-preprocess-it-by-removing-non-alphanumeric-characters">
+<h2><span class="section-number">42.1. </span>1. Read the 2nd file and preprocess it by removing non-alphanumeric characters<a class="headerlink" href="#read-the-2nd-file-and-preprocess-it-by-removing-non-alphanumeric-characters" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="perform-sentiment-analysis-topic-modeling-and-identify-the-most-commonly-co-occurring-words-with-religion-politics-guns">
+<h2><span class="section-number">42.2. </span>2. Perform sentiment analysis, topic modeling and identify the most commonly co-occurring words with “religion”, “politics”, “guns”<a class="headerlink" href="#perform-sentiment-analysis-topic-modeling-and-identify-the-most-commonly-co-occurring-words-with-religion-politics-guns" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="build-a-bag-of-words-model-and-compute-tf-idf-the-query-pizza">
+<h2><span class="section-number">42.3. </span>3. Build a bag of words model and compute TF-IDF the query “pizza”.<a class="headerlink" href="#build-a-bag-of-words-model-and-compute-tf-idf-the-query-pizza" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="nb-07-06-sentiment.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">39. </span>Sentiment Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="nb-07-08-fastai-imdb.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">43. </span>IMDB</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jason Kuruzovich<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

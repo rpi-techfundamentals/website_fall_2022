@@ -1,0 +1,84 @@
+# We will use vader sentiment analysis here considering short text phrases
+!pip install vaderSentiment
+import vaderSentiment
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer 
+
+
+def measure_sentiment(textval):
+  sentObj = SentimentIntensityAnalyzer() 
+  sentimentvals = sentObj.polarity_scores(textval)
+  print(sentimentvals)
+  if sentimentvals['compound']>=0.5: 
+    return("Positive")
+  elif sentimentvals['compound']<= -0.5: 
+    return("Negative")
+  else:
+    return("Neutral")
+
+text1 = "I love the beautiful weather today. It is absolutely pleasant."
+text2 = "Unbelievably disappointing"
+text3 = "Full of zany characters and richly applied satire, and some great plot twists"
+text4 = "This is the greatest screwball comedy ever filmed"
+text5 = "This is the greatest screwball comedy ever filmed"
+text6 = "It was pathetic. The worst part about it was the boxing scenes."
+
+#print(measure_sentiment(text1))
+#print(measure_sentiment(text2))
+#print(measure_sentiment(text3))
+#print(measure_sentiment(text4))
+#print(measure_sentiment(text5))
+print(measure_sentiment(text6))
+
+
+
+
+#Load the file first
+!wget https://www.dropbox.com/s/o8lxi6yrezmt5em/reviews.txt
+
+
+import gensim
+from gensim import corpora
+from gensim.utils import simple_preprocess
+from gensim.models import CoherenceModel
+
+import nltk
+from nltk.corpus import stopwords 
+#from nltk.tokenize import word_tokenize
+from nltk.tokenize import sent_tokenize 
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('stopwords')
+
+def sent_to_words(sentences):
+    for sentence in sentences:
+        yield(gensim.utils.simple_preprocess(str(sentence), deacc=True))  # deacc=True removes punctuations
+
+def remove_stopwords(texts):
+    return [[word for word in simple_preprocess(str(doc)) if word not in stop_words] for doc in texts]
+
+f=open('reviews.txt')
+text = f.read()
+
+stop_words = stopwords.words('english')
+sentences=sent_tokenize(text)
+
+data_words = list(sent_to_words(sentences))
+data_words_nostops = remove_stopwords(data_words)
+
+dictionary = corpora.Dictionary(data_words_nostops)
+corpus = [dictionary.doc2bow(text) for text in data_words_nostops]
+
+NUM_TOPICS = 2
+ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics = NUM_TOPICS, id2word=dictionary, passes=15)
+print("ldamodel is built")
+#ldamodel.save('model5.gensim')
+topics = ldamodel.print_topics(num_words=6)
+for topic in topics:
+    print(topic)
+
+
+model = gensim.models.Word2Vec(data_words_nostops, min_count=1)
+#print(model.most_similar("fish", topn=10))
+
+print(model.most_similar("bar", topn=10))
+

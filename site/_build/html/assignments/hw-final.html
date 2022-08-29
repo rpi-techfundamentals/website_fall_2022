@@ -1,0 +1,1363 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>77. Final Exam &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The MS Business Analytics Capstone Course" href="../content/capstone.html" />
+    <link rel="prev" title="62. Homework-7" href="hw-7.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-32817743-6', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Introduction to Machine Learning Applications
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OVERVIEW
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/schedule.html">
+   Schedule
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  NOTEBOOKS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-01-01-python-overview.html">
+   1. Overview of Python Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-01-02-datastructures.html">
+   2. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-01-03-numpy.html">
+   3. Overview of Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-01-04-pandas.html">
+   4. Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-01-conditionals-loops.html">
+   5. Conditional Statements and Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-02-functions.html">
+   6. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-02a-pandas-functions.html">
+   7. Introduction to Apply Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-03-null-values.html">
+   8. Null Values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-04-groupby.html">
+   9. Groupby and Pivot Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-04-pivottable.html">
+   10. More Pivottables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-05-kaggle-baseline.html">
+   11. Kaggle Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-02-EX-Exercise1.html">
+   12. Exercise 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-03-01-features-dummies.html">
+   13. Feature Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-03-02-strings-regular-expressions.html">
+   15. String Manipulation and Regular Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-03-03-visualization-python-seaborn.html">
+   16. Introduction to Seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-03-04-intro-python-webmining.html">
+   17. Web Mining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-03-06-matplotlib.html">
+   18. MatplotLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-01-neural-networks.html">
+   19. Neural Networks and the Simplist XOR Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-02-train-test-split.html">
+   20. Train Test Splits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-03-intro-logistic-knn.html">
+   21. Classification with Scikit-learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-04-knn.html">
+   22. KNN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-05-revisit-titanic0.html">
+   23. Titanic Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-06-revisit-titanic.html">
+   24. Titanic Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-04-07-titanic-features.html">
+   25. Basic Text Feature Creation in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-05-01-matrix-regression-gradient-decent-python.html">
+   26. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-05-02-regression-boston-housing-python.html">
+   27. Boston Housing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-05-03-ridge-lasso-python.html">
+   28. Lasso Ridge Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-05-04-stats-models.html">
+   29. Regression with Stats-Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-06-01-introduction-pca.html">
+   30. Introduction to Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-06-02-pca2.html">
+   31. In Depth: Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-06-03-kmeans.html">
+   32. k-Means Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-06-04-covid19.html">
+   33. Coronavirus Data Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-00-corpus-simple.html">
+   34. Introduction to Text Mining in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-01-intro-nlp.html">
+   35. Natural Language Toolkit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-02-scikit-learn-text.html">
+   36. Bag-of-Words Using Scikit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-03-what-cooking-python.html">
+   37. What’s Cooking in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-05-bag-popcorn-bag-words.html">
+   38. Bag of Words
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-06-sentiment.html">
+   39. Sentiment Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-07-sentimentB.html">
+   41. Lecture-21: Introduction to Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-08-fastai-imdb.html">
+   43. IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-09-intro2.html">
+   44. Introduction to Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-07-10-vectorization.html">
+   45. Vectorizors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-08-01-midterm_sample.html">
+   47. Sample Coding Midterm.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-09-01-time-series.html">
+   48. Time Series Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-09-02-forcasting-rossman.html">
+   49. Panel Data vs Time Series Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-00-evaluation.html">
+   51. Evaluation of Classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-00-neural-networks.html">
+   52. Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-01-tensorflow.html">
+   53. Tensorflow Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-02-tensor-tutorial.html">
+   56. Pytorch Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-03-pytorch-iris.html">
+   57. Revisiting IRIS with PyTorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-04-covnet-tutorial.html">
+   58. Convolutional Neural Network with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-04-pytorch-explainer.html">
+   59. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-04_pytorch_mnist1.html">
+   60. Pytorch Advantages vs Tensorflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-05-pytorch-mnist.html">
+   61. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-06-regression-bh-pytorch.html">
+   62. Revisting Boston Housing with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-06_tensorflow_minst.html">
+   63. Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-07-titanic-fastai.html">
+   64. Titanic Fastai
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-08-ludwig.html">
+   65. Ludwig
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-09-vectorization-transfer.html">
+   66. Transfer Learning - NLP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-10-deeplearningtitanic.html">
+   68. Titanic Classification - Deep Learning Tensorflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-11-deeplearningregression.html">
+   70. Regression with Tensorflow/Keras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/nb-10-99_intro_tensorflow.html">
+   71. Tensorflow Graph Creation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  ASSIGNMENTS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-1.html">
+   1. Homework-1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-2.html">
+   14. Homework-2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-3.html">
+   31. Homework-3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-4.html">
+   42. Homework-4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-5.html">
+   54. Homework-5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw-7.html">
+   62. Homework-7
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   77. Final Exam
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rpi.box.com/s/2rivfabp5r2sc224nwgv3en1cmks3cec">
+   Box Link
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/fastai/fastbook">
+   Fast.ai Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.tensorflow.org/tutorials">
+   Tensorflow Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://pytorch.org/tutorials/">
+   Pytorch Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.kaggle.com/learn/intro-to-deep-learning">
+   Kaggle Introduction to Deep Learning Course
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/capstone.html">
+   <strong>
+    The MS Business Analytics Capstone Course
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/rpi-techfundamentals/website_fall_2021/master?urlpath=tree/site/assignments/hw-final.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/rpi-techfundamentals/website_fall_2021/blob/master/site/assignments/hw-final.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2021"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2021/issues/new?title=Issue%20on%20page%20%2Fassignments/hw-final.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/assignments/hw-final.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   77. Final Exam
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#points">
+     77.1. 81 Points
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#due-date-dec-17-7-30-pm">
+     77.2. Due date: Dec 17 7:30 PM
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#please-note-that-for-any-question-in-this-assignment-you-will-receive-points-only-if-your-solution-passes-all-the-test-cases-including-hidden-testcases-as-well-so-please-make-sure-you-try-to-think-all-possible-scenarios-before-submitting-your-answers">
+     77.3. Please note that for any question in this assignment you will receive points ONLY if your solution passes all the test cases including hidden testcases as well. So please make sure you try to think all possible scenarios before submitting your answers.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q1-20-points-cluster-analysis">
+     77.4. Q1 [20 points]. Cluster Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q2-21-points-gbm-regressor">
+   78. Q2 [21 points]. GBM Regressor
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q3-15-points-regression">
+     78.1. Q3 [15 points] Regression
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#q4-15-points-deep-learning">
+       78.1.1. Q4[15 points]. Deep Learning.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#q5-17-5-points-comparison">
+       78.1.2. Q5 [17.5 points]. Comparison
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Final Exam</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   77. Final Exam
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#points">
+     77.1. 81 Points
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#due-date-dec-17-7-30-pm">
+     77.2. Due date: Dec 17 7:30 PM
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#please-note-that-for-any-question-in-this-assignment-you-will-receive-points-only-if-your-solution-passes-all-the-test-cases-including-hidden-testcases-as-well-so-please-make-sure-you-try-to-think-all-possible-scenarios-before-submitting-your-answers">
+     77.3. Please note that for any question in this assignment you will receive points ONLY if your solution passes all the test cases including hidden testcases as well. So please make sure you try to think all possible scenarios before submitting your answers.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q1-20-points-cluster-analysis">
+     77.4. Q1 [20 points]. Cluster Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q2-21-points-gbm-regressor">
+   78. Q2 [21 points]. GBM Regressor
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q3-15-points-regression">
+     78.1. Q3 [15 points] Regression
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#q4-15-points-deep-learning">
+       78.1.1. Q4[15 points]. Deep Learning.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#q5-17-5-points-comparison">
+       78.1.2. Q5 [17.5 points]. Comparison
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="section" id="final-exam">
+<h1><span class="section-number">77. </span>Final Exam<a class="headerlink" href="#final-exam" title="Permalink to this headline">#</a></h1>
+<div class="section" id="points">
+<h2><span class="section-number">77.1. </span>81 Points<a class="headerlink" href="#points" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="due-date-dec-17-7-30-pm">
+<h2><span class="section-number">77.2. </span>Due date: Dec 17 7:30 PM<a class="headerlink" href="#due-date-dec-17-7-30-pm" title="Permalink to this headline">#</a></h2>
+<p>Before you submit this homework, make sure everything runs as expected. First, restart the kernel (in the menu, select Kernel → Restart) and then run all cells (in the menubar, select Cell → Run All). You can discuss with others regarding the homework but all work must be your own.</p>
+<p>Steps to evaluate your solutions:</p>
+<p>Step-1: Try on Colab or Anaconda (Windows: <a class="reference external" href="https://docs.anaconda.com/anaconda/install/windows/">https://docs.anaconda.com/anaconda/install/windows/</a> ; Mac:<a class="reference external" href="https://docs.anaconda.com/anaconda/install/mac-os/">https://docs.anaconda.com/anaconda/install/mac-os/</a> ; Linux: <a class="reference external" href="https://docs.anaconda.com/anaconda/install/linux/">https://docs.anaconda.com/anaconda/install/linux/</a>)</p>
+<p>Step-2: Open the Jupyter Notebook by first launching the anaconda software console</p>
+<p>Step-3: Open the homework’s .ipynb file and write your solutions at the appropriate location “# YOUR CODE HERE”</p>
+<p>Step-4: You can restart the kernel and click run all (in the menubar, select Cell → Run All) on the center-right on the top of this window.</p>
+<p>Step-5: Now go to “File” then click on “Download as” then click on “Notebook (.ipynb)” Please DO NOT change the file name and just keep it as “.ipynb”</p>
+<p>Step-6: Go to <a class="reference external" href="http://lms.rpi.edu">lms.rpi.edu</a> and upload your homework at the appropriate link to submit this homework.</p>
+</div>
+<div class="section" id="please-note-that-for-any-question-in-this-assignment-you-will-receive-points-only-if-your-solution-passes-all-the-test-cases-including-hidden-testcases-as-well-so-please-make-sure-you-try-to-think-all-possible-scenarios-before-submitting-your-answers">
+<h2><span class="section-number">77.3. </span>Please note that for any question in this assignment you will receive points ONLY if your solution passes all the test cases including hidden testcases as well. So please make sure you try to think all possible scenarios before submitting your answers.<a class="headerlink" href="#please-note-that-for-any-question-in-this-assignment-you-will-receive-points-only-if-your-solution-passes-all-the-test-cases-including-hidden-testcases-as-well-so-please-make-sure-you-try-to-think-all-possible-scenarios-before-submitting-your-answers" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Note that hidden tests are present to ensure you are not hardcoding.</p></li>
+<li><p>If caught cheating:</p>
+<ul>
+<li><p>you will receive a score of 0 for the 1st violation.</p></li>
+<li><p>for repeated incidents, you will receive an automatic ‘F’ grade and will be reported to the dean of Lally School of Management.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/rpi-techfundamentals/website_fall_2021/master/site/public/data2.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q1-20-points-cluster-analysis">
+<h2><span class="section-number">77.4. </span>Q1 [20 points]. Cluster Analysis<a class="headerlink" href="#q1-20-points-cluster-analysis" title="Permalink to this headline">#</a></h2>
+<p>For the cluster analysis below use all variables in <code class="docutils literal notranslate"><span class="pre">df</span></code> except the <code class="docutils literal notranslate"><span class="pre">target</span></code> column.</p>
+<ol class="simple">
+<li><p>Using the KMEANS function to create a <code class="docutils literal notranslate"><span class="pre">kmeans</span></code> cluster mode in sklearn. Create columns in df called <code class="docutils literal notranslate"><span class="pre">kmeans_3</span></code> and <code class="docutils literal notranslate"><span class="pre">kmeans_5</span></code> which includes the cluster <code class="docutils literal notranslate"><span class="pre">labels</span></code> for a cluster analysis with <code class="docutils literal notranslate"><span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">5</span></code> clusters. Use <code class="docutils literal notranslate"><span class="pre">random_state=100</span></code> as a parameter in the KMeans.</p></li>
+<li><p>Create a dictionary from the analysis in 1 called <code class="docutils literal notranslate"><span class="pre">inert</span></code> in which the key of the dictionary is the number of clusters (3 and 5 in <code class="docutils literal notranslate"><span class="pre">int</span></code> type) and the value is the sum of squared distances of samples to their closest cluster center (i.e., the inertia).</p></li>
+</ol>
+<p>#For example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inter</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">get</span> <span class="n">the</span> <span class="n">inertia</span> <span class="k">for</span> <span class="n">the</span> <span class="n">model</span> <span class="k">with</span> <span class="mi">3</span> <span class="n">clusters</span><span class="o">&gt;</span>
+<span class="n">inter</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">get</span> <span class="n">the</span> <span class="n">intertia</span> <span class="k">for</span> <span class="n">the</span> <span class="n">model</span> <span class="k">with</span> <span class="mi">5</span> <span class="n">clusters</span><span class="o">&gt;</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Put your entire answer here in this cell. </span>
+<span class="c1">#It is ok to use other temporary cells while working but for final submission move all related code to this cell.</span>
+
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#These are helper tests to make sure you have answers.  If this fails, please check your naming. </span>
+<span class="k">assert</span> <span class="s1">&#39;kmeans_3&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+<span class="k">assert</span> <span class="s1">&#39;kmeans_5&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+<span class="k">assert</span> <span class="s1">&#39;inert&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+<span class="c1">#Reload data</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">df_q2</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/rpi-techfundamentals/website_fall_2021/master/site/public/data2.csv&quot;</span><span class="p">)</span>
+<span class="n">train_X</span><span class="p">,</span> <span class="n">test_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_q2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:],</span> <span class="n">df_q2</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> 
+                                                    <span class="n">train_size</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">122</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q2-21-points-gbm-regressor">
+<h1><span class="section-number">78. </span>Q2 [21 points]. GBM Regressor<a class="headerlink" href="#q2-21-points-gbm-regressor" title="Permalink to this headline">#</a></h1>
+<p>Using the training and test data provided (<code class="docutils literal notranslate"><span class="pre">train_X</span></code>, <code class="docutils literal notranslate"><span class="pre">test_X</span></code>, <code class="docutils literal notranslate"><span class="pre">train_y</span></code>, <code class="docutils literal notranslate"><span class="pre">test_y</span></code>), use the <code class="docutils literal notranslate"><span class="pre">sklearn.ensemble.GradientBoostingRegressor</span></code> with <code class="docutils literal notranslate"><span class="pre">random_state</span> <span class="pre">=</span> <span class="pre">100</span></code>.</p>
+<ol class="simple">
+<li><p>Calculate the r-squared for both the <code class="docutils literal notranslate"><span class="pre">train</span></code> and the <code class="docutils literal notranslate"><span class="pre">test</span></code> set and assign to <code class="docutils literal notranslate"><span class="pre">gbm_r2_train</span></code> and <code class="docutils literal notranslate"><span class="pre">gbm_r2_test</span></code>, respectively.</p></li>
+<li><p>Calculate the mean absolute error for both the <code class="docutils literal notranslate"><span class="pre">train</span></code> and the <code class="docutils literal notranslate"><span class="pre">test</span></code> set and assign to <code class="docutils literal notranslate"><span class="pre">gbm_mae_train</span></code> and <code class="docutils literal notranslate"><span class="pre">gbm_mae_test</span></code>, respectively.</p></li>
+<li><p>Create a varaible <code class="docutils literal notranslate"><span class="pre">gbm_most_important</span></code> and indicate the column name of the most important column from the GradientBoostingRegressor analysis.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Put your entire answer here in this cell. </span>
+<span class="c1">#It is ok to use other temporary cells while working but for final submission move all related code to this cell.</span>
+
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#These are helper tests to make sure you have answers.  If this fails, please check your naming. </span>
+<span class="k">assert</span> <span class="s1">&#39;gbm_mae_train&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;gbm_mae_test&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;gbm_r2_test&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;gbm_r2_train&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;gbm_most_important&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="q3-15-points-regression">
+<h2><span class="section-number">78.1. </span>Q3 [15 points] Regression<a class="headerlink" href="#q3-15-points-regression" title="Permalink to this headline">#</a></h2>
+<p>Using the  <code class="docutils literal notranslate"><span class="pre">df_q2</span></code> dataframe, use the <code class="docutils literal notranslate"><span class="pre">sklearn.linear_model.LinearRegression</span></code> to do linear regression.</p>
+<ol class="simple">
+<li><p>Calculate the r-squared for both the <code class="docutils literal notranslate"><span class="pre">train</span></code> and the <code class="docutils literal notranslate"><span class="pre">test</span></code> set and assign to <code class="docutils literal notranslate"><span class="pre">reg_r2_train</span></code> and <code class="docutils literal notranslate"><span class="pre">reg_r2_test</span></code>, respectively.</p></li>
+<li><p>Calculate the mean absolute error for both the <code class="docutils literal notranslate"><span class="pre">train</span></code> and the <code class="docutils literal notranslate"><span class="pre">test</span></code> set and assign to <code class="docutils literal notranslate"><span class="pre">reg_mae_train</span></code> and <code class="docutils literal notranslate"><span class="pre">reg_mae_test</span></code>, respectively.</p></li>
+<li><p>From you regression model, get the  beta coefficient of the column <code class="docutils literal notranslate"><span class="pre">treatment</span></code> and set it to the variable  <code class="docutils literal notranslate"><span class="pre">treat_coef</span></code>.</p></li>
+<li><p>Based on the coefficient (don’t worry about significance) does the treatment tend to <code class="docutils literal notranslate"><span class="pre">increase</span></code> or <code class="docutils literal notranslate"><span class="pre">decrease</span></code> the <code class="docutils literal notranslate"><span class="pre">target</span></code>? Set the value of <code class="docutils literal notranslate"><span class="pre">treat_dir</span></code> to your answer.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Put your entire answer here in this cell. </span>
+<span class="c1">#It is ok to use other temporary cells while working but for final submission move all related code to this cell.</span>
+
+
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#These are helper tests to make sure you have answers.  If this fails, please check your naming. </span>
+<span class="k">assert</span> <span class="s1">&#39;reg_mae_train&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;reg_mae_test&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;reg_r2_test&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;reg_r2_train&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;treat_coef&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">treat_dir</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;increase&#39;</span><span class="p">,</span><span class="s1">&#39;decrease&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="q4-15-points-deep-learning">
+<h3><span class="section-number">78.1.1. </span>Q4[15 points]. Deep Learning.<a class="headerlink" href="#q4-15-points-deep-learning" title="Permalink to this headline">#</a></h3>
+<p>Build a 4-layer neural network called <code class="docutils literal notranslate"><span class="pre">model</span></code>:</p>
+<ul class="simple">
+<li><p>Layer 0 is a normalization layer.</p></li>
+<li><p>Layer 1 is a dense layer with 100 nodes and relu activation</p></li>
+<li><p>Layer 2 is a dense layer with 100 nodes and relu activation</p></li>
+<li><p>Layer 3 is the final dense layer with 1 output.</p></li>
+</ul>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">adam</span></code> optimizer and <code class="docutils literal notranslate"><span class="pre">mean_absolute_error</span></code> as the loss function with <code class="docutils literal notranslate"><span class="pre">epochs</span></code>=175.</p>
+<p>Also, evaluate the model. Calculate <code class="docutils literal notranslate"><span class="pre">deep_r2_train</span></code>, <code class="docutils literal notranslate"><span class="pre">deep_mae_train</span></code>,  <code class="docutils literal notranslate"><span class="pre">deep_r2_test</span></code>, and   <code class="docutils literal notranslate"><span class="pre">deep_mae_test</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Put your entire answer here in this cell. </span>
+<span class="c1">#It is ok to use other temporary cells while working but for final submission move all related code to this cell.</span>
+
+
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="s1">&#39;model&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;deep_r2_train&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;deep_mae_train&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;deep_r2_test&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="k">assert</span> <span class="s1">&#39;deep_mae_test&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q5-17-5-points-comparison">
+<h3><span class="section-number">78.1.2. </span>Q5 [17.5 points]. Comparison<a class="headerlink" href="#q5-17-5-points-comparison" title="Permalink to this headline">#</a></h3>
+<p>For each of the questions below, reply with the available options in <code class="docutils literal notranslate"><span class="pre">()</span></code>. Even if you didn’t get all models to work, at least make a guess. Hint: The intuition of what you might expect for the 3 different models is correct.</p>
+<p><code class="docutils literal notranslate"><span class="pre">q5a</span></code>  Which is a linear model? (<code class="docutils literal notranslate"><span class="pre">gbm</span></code> or <code class="docutils literal notranslate"><span class="pre">reg</span></code> or <code class="docutils literal notranslate"><span class="pre">deep</span></code>)</p>
+<p><code class="docutils literal notranslate"><span class="pre">q5b</span></code>  Which is actually make up of many different models working together (an ensemble model) (<code class="docutils literal notranslate"><span class="pre">gbm</span></code> or <code class="docutils literal notranslate"><span class="pre">reg</span></code> or <code class="docutils literal notranslate"><span class="pre">deep</span></code>)?</p>
+<p><code class="docutils literal notranslate"><span class="pre">q5c</span></code>  Which performs better from a prediction standpoint (<code class="docutils literal notranslate"><span class="pre">gbm</span></code> or <code class="docutils literal notranslate"><span class="pre">reg</span></code> or <code class="docutils literal notranslate"><span class="pre">deep</span></code>)?</p>
+<p><code class="docutils literal notranslate"><span class="pre">q5d</span></code>  Which gives you an understanding of the direction of the treatment on the target (<code class="docutils literal notranslate"><span class="pre">gbm</span></code> or <code class="docutils literal notranslate"><span class="pre">reg</span></code> or <code class="docutils literal notranslate"><span class="pre">deep</span></code>)?</p>
+<p><code class="docutils literal notranslate"><span class="pre">q5e</span></code>  Which shows more evidence of overfitting between train and test (<code class="docutils literal notranslate"><span class="pre">gbm</span></code> or <code class="docutils literal notranslate"><span class="pre">reg</span></code> or <code class="docutils literal notranslate"><span class="pre">deep</span></code>)?</p>
+<p><code class="docutils literal notranslate"><span class="pre">q5f</span></code>  Which model has the most parameters?(<code class="docutils literal notranslate"><span class="pre">gbm</span></code> or <code class="docutils literal notranslate"><span class="pre">reg</span></code> or <code class="docutils literal notranslate"><span class="pre">deep</span></code>)</p>
+<p><code class="docutils literal notranslate"><span class="pre">q5g</span></code>  The importance metric from a GBM analysis is always very highly correlated with the coefficients from a regression analysis (<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Put your entire answer here in this cell. </span>
+<span class="c1">#It is ok to use other temporary cells while working but for final submission move all related code to this cell.</span>
+
+
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#These are helper tests to make sure you have answers.  If this fails, please check your naming. </span>
+<span class="k">assert</span> <span class="n">q5a</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span><span class="s1">&#39;gbm&#39;</span><span class="p">,</span><span class="s1">&#39;deep&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">q5b</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span><span class="s1">&#39;gbm&#39;</span><span class="p">,</span><span class="s1">&#39;deep&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">q5c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span><span class="s1">&#39;gbm&#39;</span><span class="p">,</span><span class="s1">&#39;deep&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">q5d</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span><span class="s1">&#39;gbm&#39;</span><span class="p">,</span><span class="s1">&#39;deep&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">q5e</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span><span class="s1">&#39;gbm&#39;</span><span class="p">,</span><span class="s1">&#39;deep&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">q5f</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span><span class="s1">&#39;gbm&#39;</span><span class="p">,</span><span class="s1">&#39;deep&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">q5g</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;True&#39;</span><span class="p">,</span><span class="s1">&#39;False&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Please do not modify/delete this cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="hw-7.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">62. </span>Homework-7</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../content/capstone.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>The MS Business Analytics Capstone Course</strong></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jason Kuruzovich<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
