@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>6. Functions &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -689,7 +690,7 @@ title="Print to PDF"
   <p><a class="reference external" href="http://introml.analyticsdojo.com"><img alt="AnalyticsDojo" src="https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1" /></a></p>
 <center><h1>Introduction to Python - Functions</h1></center>
 <center><h3><a href = 'http://introml.analyticsdojo.com'>introml.analyticsdojo.com</a></h3></center>
-<div class="tex2jax_ignore mathjax_ignore section" id="functions">
+<section class="tex2jax_ignore mathjax_ignore" id="functions">
 <h1><span class="section-number">6. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Why functions?</p></li>
@@ -699,7 +700,7 @@ title="Print to PDF"
 <li><p>Lambda functions</p></li>
 <li><p>Exercises</p></li>
 </ul>
-<div class="section" id="why-functions">
+<section id="why-functions">
 <h2><span class="section-number">6.1. </span>Why Functions?<a class="headerlink" href="#why-functions" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Code reuse.</p></li>
@@ -708,8 +709,8 @@ title="Print to PDF"
 <li><p>Specific functional programming languages like Lisp &amp; Haskell built around <em>functional programming</em>, which enforces great practices.</p></li>
 <li><p>Read more about functional programming in Python <a class="reference external" href="http://www.ibm.com/developerworks/library/l-prog/">here</a>.</p></li>
 </ul>
-</div>
-<div class="section" id="predefined-functions">
+</section>
+<section id="predefined-functions">
 <h2><span class="section-number">6.2. </span>Predefined Functions<a class="headerlink" href="#predefined-functions" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>We have used predefined functions in earlier exercises</p></li>
@@ -737,8 +738,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="custom-functions-in-python">
+</section>
+<section id="custom-functions-in-python">
 <h2><span class="section-number">6.3. </span>Custom Functions in Python<a class="headerlink" href="#custom-functions-in-python" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>The statement <code class="docutils literal notranslate"><span class="pre">def</span></code> introduces a function definition, which is followed by the <em>function name</em> and the <em>list of pramaters that are passed to the function</em> as well as a colon to end the line.</p></li>
@@ -762,8 +763,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="functional-programming">
+</section>
+<section id="functional-programming">
 <h2><span class="section-number">6.4. </span>Functional Programming<a class="headerlink" href="#functional-programming" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Functions are, like everything else in Python, object.</p></li>
@@ -792,8 +793,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="applying-a-function-to-each-element-of-a-collection-with-map">
+</section>
+<section id="applying-a-function-to-each-element-of-a-collection-with-map">
 <h2><span class="section-number">6.5. </span>Applying a Function to Each Element of a Collection with Map<a class="headerlink" href="#applying-a-function-to-each-element-of-a-collection-with-map" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>We can apply a function to each element of a collection using the built-in function <code class="docutils literal notranslate"><span class="pre">map()</span></code>.</p></li>
@@ -808,8 +809,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="applying-a-function-to-each-element-of-a-collection-with-list-comprehensions">
+</section>
+<section id="applying-a-function-to-each-element-of-a-collection-with-list-comprehensions">
 <h2><span class="section-number">6.6. </span>Applying a Function to Each Element of a Collection with  List Comprehensions<a class="headerlink" href="#applying-a-function-to-each-element-of-a-collection-with-list-comprehensions" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Because this is such a common operation, Python has a special syntax to do the same thing, called a list comprehension.</p></li>
@@ -832,8 +833,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="applying-a-function-to-subset-of-a-collection-with-list-comprehensions">
+</section>
+<section id="applying-a-function-to-subset-of-a-collection-with-list-comprehensions">
 <h2><span class="section-number">6.7. </span>Applying a Function to Subset of a Collection with  List Comprehensions<a class="headerlink" href="#applying-a-function-to-subset-of-a-collection-with-list-comprehensions" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>List Comprehensions can be nested</p></li>
@@ -861,8 +862,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="cartesian-product-using-list-comprehensions">
+</section>
+<section id="cartesian-product-using-list-comprehensions">
 <h2><span class="section-number">6.8. </span>Cartesian product using List Comprehensions<a class="headerlink" href="#cartesian-product-using-list-comprehensions" title="Permalink to this headline">#</a></h2>
 <p><img alt="Cartesian Product" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Cartesian_Product_qtl1.svg" />
 By Quartl (Own work) [GFDL (<a class="reference external" href="http://www.gnu.org/copyleft/fdl.html">http://www.gnu.org/copyleft/fdl.html</a>) or CC BY-SA 3.0 (<a class="reference external" href="http://creativecommons.org/licenses/by-sa/3.0">http://creativecommons.org/licenses/by-sa/3.0</a>)], via Wikimedia Commons</p>
@@ -878,8 +879,8 @@ By Quartl (Own work) [GFDL (<a class="reference external" href="http://www.gnu.o
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="cartesian-products-with-other-collections">
+</section>
+<section id="cartesian-products-with-other-collections">
 <h2><span class="section-number">6.9. </span>Cartesian products with other collections<a class="headerlink" href="#cartesian-products-with-other-collections" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>The syntax for Cartesian products can be used with any collection type.</p></li>
@@ -894,8 +895,8 @@ By Quartl (Own work) [GFDL (<a class="reference external" href="http://www.gnu.o
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="anonymous-functions-lambda-expressions">
+</section>
+<section id="anonymous-functions-lambda-expressions">
 <h2><span class="section-number">6.10. </span>Anonymous Functions: <em>lambda expressions</em><a class="headerlink" href="#anonymous-functions-lambda-expressions" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>While we can create named functions with <code class="docutils literal notranslate"><span class="pre">def</span></code>, we can also write <em>anonymous</em> functions that do not necessarily have a name.</p></li>
@@ -911,8 +912,8 @@ By Quartl (Own work) [GFDL (<a class="reference external" href="http://www.gnu.o
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="lambda-filtering-list">
+</section>
+<section id="lambda-filtering-list">
 <h2><span class="section-number">6.11. </span><code class="docutils literal notranslate"><span class="pre">lambda</span></code> : Filtering LIst<a class="headerlink" href="#lambda-filtering-list" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>We can filter a list by applying a <em>predicate</em> to each element of the list.</p></li>
@@ -939,8 +940,8 @@ By Quartl (Own work) [GFDL (<a class="reference external" href="http://www.gnu.o
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="example-filter-string">
+</section>
+<section id="example-filter-string">
 <h2><span class="section-number">6.12. </span>Example Filter String<a class="headerlink" href="#example-filter-string" title="Permalink to this headline">#</a></h2>
 <p>We can use both <code class="docutils literal notranslate"><span class="pre">filter()</span></code> and <code class="docutils literal notranslate"><span class="pre">map()</span></code> on other collections such as strings or sets.</p>
 <div class="cell docutils container">
@@ -957,8 +958,8 @@ By Quartl (Own work) [GFDL (<a class="reference external" href="http://www.gnu.o
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="filtering-using-a-list-comprehension">
+</section>
+<section id="filtering-using-a-list-comprehension">
 <h2><span class="section-number">6.13. </span>Filtering using a List Comprehension<a class="headerlink" href="#filtering-using-a-list-comprehension" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Again, because this is such a common operation, we can use simpler syntax to say the same thing.</p></li>
@@ -981,15 +982,15 @@ By Quartl (Own work) [GFDL (<a class="reference external" href="http://www.gnu.o
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="big-data">
+</section>
+<section id="big-data">
 <h2><span class="section-number">6.14. </span>Big Data<a class="headerlink" href="#big-data" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">map()</span></code> and <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> functions form the basis of the map-reduce programming model.</p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/MapReduce">Map-reduce</a> is the basis of modern highly-distributed large-scale computing frameworks.</p></li>
 <li><p>It is used in BigTable, Hadoop and Apache Spark.</p></li>
 </ul>
-<div class="section" id="modules">
+<section id="modules">
 <h3><span class="section-number">6.14.1. </span>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Functions are great, but you might not want to repeat same function in different programs.</p></li>
@@ -1006,8 +1007,8 @@ By Quartl (Own work) [GFDL (<a class="reference external" href="http://www.gnu.o
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="working-with-modules-in-jupyter-notebooks">
+</section>
+<section id="working-with-modules-in-jupyter-notebooks">
 <h3><span class="section-number">6.14.2. </span>Working with Modules in Jupyter Notebooks<a class="headerlink" href="#working-with-modules-in-jupyter-notebooks" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>If a model is loaded, re-running the import command won’t update it.</p></li>
@@ -1042,9 +1043,9 @@ By Quartl (Own work) [GFDL (<a class="reference external" href="http://www.gnu.o
 </div>
 <p>This work is licensed under the <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license agreement.
 Adopted from <a class="reference external" href="https://github.com/phelps-sg/python-bigdata">materials</a> Copyright <a class="reference external" href="http://sphelps.net">Steve Phelps</a> 2014</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
