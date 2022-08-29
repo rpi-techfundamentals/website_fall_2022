@@ -1,10 +1,10 @@
 format: jb-book
 root: intro
 parts:
-- caption: OVERVIEW
-  chapters:
-  - file: content/schedule
-    title: Schedule
+#- caption: OVERVIEW
+#  chapters:
+#  - file: content/schedule
+#    title: Schedule
 - caption: NOTEBOOKS
   numbered: True
   start_numbering_at: 1
@@ -18,18 +18,14 @@ parts:
 - caption: Resources
   numbered: False
   chapters:
-  - url: https://rpi.box.com/s/2rivfabp5r2sc224nwgv3en1cmks3cec
+  - url: https://rpi.box.com/s/n53px4yfo4jpfh7qnz7qry8vecopj3np
     title: Box Link
+  - url: https://eurl.io/#6KdR-6z9i
+    title: Join Webex Teams
   - url: https://github.com/ageron/handson-ml2
     title: Hands On Machine Learning with Python
-  - url: https://github.com/ageron/handson-ml2
-    title: Hands On Machine Learning with Python
-  - url: https://github.com/fastai/fastbook
-    title: Fast.ai Book
+  - url: https://d2l.ai
+    title: Dive into Deep Learning
   - url: https://www.tensorflow.org/tutorials
     title: Tensorflow Tutorials
-  - url: https://pytorch.org/tutorials/
-    title: Pytorch Tutorials
-  - url: https://www.kaggle.com/learn/intro-to-deep-learning
-    title: Kaggle Introduction to Deep Learning Course
   - file: content/capstone
