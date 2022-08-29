@@ -34,7 +34,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build site/ --all
+        jupyter-book build ./site/ --all
     - name: Convert Script
       run: |
         cp CNAME ./site/_build/html/CNAME
