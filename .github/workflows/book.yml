@@ -1,0 +1,47 @@
+name: deploy-book
+
+# Only run this when the master branch changes
+on:
+  push:
+    branches:
+    - master
+
+# This job installs dependencies, build the book, and pushes it to `gh-pages`
+jobs:
+  deploy-book:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    # Install dependencies
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Convert Script
+      run: |
+        jupyter nbconvert --to script ./scripts/convert.ipynb
+
+    - name: Build Content
+      run: |
+        cd scripts && python convert.py
+
+    # Build the book
+    - name: Build the book
+      run: |
+        jupyter-book build site/ --all
+    - name: Convert Script
+      run: |
+        cp CNAME ./site/_build/html/CNAME
+
+    # Push the book's HTML to github-pages
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3.6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site/_build/html
