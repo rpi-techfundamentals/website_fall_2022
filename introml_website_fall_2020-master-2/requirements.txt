@@ -1,5 +1,0 @@
-sphinx
-pandas
-matplotlib
-jupyter-book
-tabulate
