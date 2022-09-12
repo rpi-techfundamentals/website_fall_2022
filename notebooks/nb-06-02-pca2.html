@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>31. In Depth: Principal Component Analysis &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>32. In Depth: Principal Component Analysis &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="32. k-Means Clustering" href="nb-06-03-kmeans.html" />
-    <link rel="prev" title="30. Introduction to Principal Component Analysis" href="nb-06-01-introduction-pca.html" />
+    <link rel="next" title="33. k-Means Clustering" href="nb-06-03-kmeans.html" />
+    <link rel="prev" title="31. Introduction to Principal Component Analysis" href="nb-06-01-introduction-pca.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -126,18 +127,6 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  OVERVIEW
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/schedule.html">
-   Schedule
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
   NOTEBOOKS
  </span>
 </p>
@@ -149,307 +138,219 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-01-02-datastructures.html">
-   2. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
+   3. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-01-03-numpy.html">
-   3. Overview of Numpy
+   4. Overview of Numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-01-04-pandas.html">
-   4. Introduction to Pandas
+   5. Introduction to Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-01-conditionals-loops.html">
-   5. Conditional Statements and Loops
+   6. Conditional Statements and Loops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-02-functions.html">
-   6. Functions
+   7. Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-02a-pandas-functions.html">
-   7. Introduction to Apply Function
+   8. Introduction to Apply Function
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-03-null-values.html">
-   8. Null Values
+   9. Null Values
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-04-groupby.html">
-   9. Groupby and Pivot Tables
+   10. Groupby and Pivot Tables
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-04-pivottable.html">
-   10. More Pivottables
+   11. More Pivottables
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-05-kaggle-baseline.html">
-   11. Kaggle Baseline
+   12. Kaggle Baseline
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-EX-Exercise1.html">
-   12. Exercise 1
+   13. Exercise 1
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-01-features-dummies.html">
-   13. Feature Extraction
+   14. Feature Extraction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-02-strings-regular-expressions.html">
-   15. String Manipulation and Regular Expressions
+   16. String Manipulation and Regular Expressions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-03-visualization-python-seaborn.html">
-   16. Introduction to Seaborn
+   17. Introduction to Seaborn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-04-intro-python-webmining.html">
-   17. Web Mining
+   18. Web Mining
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-06-matplotlib.html">
-   18. MatplotLab
+   19. MatplotLab
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-01-neural-networks.html">
-   19. Neural Networks and the Simplist XOR Problem
+   20. Neural Networks and the Simplist XOR Problem
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-02-train-test-split.html">
-   20. Train Test Splits
+   21. Train Test Splits
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-03-intro-logistic-knn.html">
-   21. Classification with Scikit-learn
+   22. Classification with Scikit-learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-04-knn.html">
-   22. KNN
+   23. KNN
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-05-revisit-titanic0.html">
-   23. Titanic Classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-04-06-revisit-titanic.html">
    24. Titanic Classification
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-06-revisit-titanic.html">
+   25. Titanic Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="nb-04-07-titanic-features.html">
-   25. Basic Text Feature Creation in Python
+   26. Basic Text Feature Creation in Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-01-matrix-regression-gradient-decent-python.html">
-   26. Linear Regression
+   27. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-02-regression-boston-housing-python.html">
-   27. Boston Housing
+   28. Boston Housing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-03-ridge-lasso-python.html">
-   28. Lasso Ridge Regression
+   29. Lasso Ridge Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-04-stats-models.html">
-   29. Regression with Stats-Models
+   30. Regression with Stats-Models
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-06-01-introduction-pca.html">
-   30. Introduction to Principal Component Analysis
+   31. Introduction to Principal Component Analysis
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   31. In Depth: Principal Component Analysis
+   32. In Depth: Principal Component Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-06-03-kmeans.html">
-   32. k-Means Clustering
+   33. k-Means Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-06-04-covid19.html">
-   33. Coronavirus Data Modeling
+   34. Coronavirus Data Modeling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-00-corpus-simple.html">
-   34. Introduction to Text Mining in Python
+   35. Introduction to Text Mining in Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-01-intro-nlp.html">
-   35. Natural Language Toolkit
+   36. Natural Language Toolkit
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-02-scikit-learn-text.html">
-   36. Bag-of-Words Using Scikit Learn
+   37. Bag-of-Words Using Scikit Learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-03-what-cooking-python.html">
-   37. What’s Cooking in Python
+   38. What’s Cooking in Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-05-bag-popcorn-bag-words.html">
-   38. Bag of Words
+   39. Bag of Words
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-06-sentiment.html">
-   39. Sentiment Analysis
+   40. Sentiment Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-07-sentimentB.html">
-   41. Lecture-21: Introduction to Natural Language Processing
+   42. Lecture-21: Introduction to Natural Language Processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-08-fastai-imdb.html">
-   43. IMDB
+   44. IMDB
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-09-intro2.html">
-   44. Introduction to Natural Language Processing
+   45. Introduction to Natural Language Processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-10-vectorization.html">
-   45. Vectorizors
+   46. Vectorizors
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  ASSIGNMENTS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="nb-08-01-midterm_sample.html">
-   47. Sample Coding Midterm.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-09-01-time-series.html">
-   48. Time Series Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-09-02-forcasting-rossman.html">
-   49. Panel Data vs Time Series Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-00-evaluation.html">
-   51. Evaluation of Classifiers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-00-neural-networks.html">
-   52. Neural Networks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-01-tensorflow.html">
-   53. Tensorflow Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-02-tensor-tutorial.html">
-   56. Pytorch Tensors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-03-pytorch-iris.html">
-   57. Revisiting IRIS with PyTorch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-04-covnet-tutorial.html">
-   58. Convolutional Neural Network with Pytorch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-04-pytorch-explainer.html">
-   59. PyTorch Deep Explainer MNIST example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-04_pytorch_mnist1.html">
-   60. Pytorch Advantages vs Tensorflow
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-05-pytorch-mnist.html">
-   61. PyTorch Deep Explainer MNIST example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-06-regression-bh-pytorch.html">
-   62. Revisting Boston Housing with Pytorch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-06_tensorflow_minst.html">
-   63. Setup
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-07-titanic-fastai.html">
-   64. Titanic Fastai
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-08-ludwig.html">
-   65. Ludwig
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-09-vectorization-transfer.html">
-   66. Transfer Learning - NLP
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-10-deeplearningtitanic.html">
-   68. Titanic Classification - Deep Learning Tensorflow
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-11-deeplearningregression.html">
-   70. Regression with Tensorflow/Keras
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-99_intro_tensorflow.html">
-   71. Tensorflow Graph Creation
+  <a class="reference internal" href="../assignments/hw-1.html">
+   1. Assignment-1
   </a>
  </li>
 </ul>
@@ -460,7 +361,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference external" href="https://rpi.box.com/s/2rivfabp5r2sc224nwgv3en1cmks3cec">
+  <a class="reference external" href="https://rpi.box.com/s/n53px4yfo4jpfh7qnz7qry8vecopj3np">
    Box Link
   </a>
  </li>
@@ -470,28 +371,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/ageron/handson-ml2">
-   Hands On Machine Learning with Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/fastai/fastbook">
-   Fast.ai Book
+  <a class="reference external" href="https://d2l.ai">
+   Dive into Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="https://www.tensorflow.org/tutorials">
    Tensorflow Tutorials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://pytorch.org/tutorials/">
-   Pytorch Tutorials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://www.kaggle.com/learn/intro-to-deep-learning">
-   Kaggle Introduction to Deep Learning Course
   </a>
  </li>
  <li class="toctree-l1">
@@ -560,7 +446,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/rpi-techfundamentals/website_fall_2021/master?urlpath=tree/site/notebooks/nb-06-02-pca2.ipynb"
+        <a href="https://mybinder.org/v2/gh/rpi-techfundamentals/website_fall_2022/master?urlpath=tree/site/notebooks/nb-06-02-pca2.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -578,7 +464,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/rpi-techfundamentals/website_fall_2021/blob/master/site/notebooks/nb-06-02-pca2.ipynb"
+        <a href="https://colab.research.google.com/github/rpi-techfundamentals/website_fall_2022/blob/master/site/notebooks/nb-06-02-pca2.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -621,7 +507,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/rpi-techfundamentals/website_fall_2021"
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2022"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -638,7 +524,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/rpi-techfundamentals/website_fall_2021/issues/new?title=Issue%20on%20page%20%2Fnotebooks/nb-06-02-pca2.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/nb-06-02-pca2.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -727,44 +613,44 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introducing-principal-component-analysis">
-   31.1. Introducing Principal Component Analysis
+   32.1. Introducing Principal Component Analysis
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pca-as-dimensionality-reduction">
-     31.1.1. PCA as dimensionality reduction
+     32.1.1. PCA as dimensionality reduction
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pca-for-visualization-hand-written-digits">
-     31.1.2. PCA for visualization: Hand-written digits
+     32.1.2. PCA for visualization: Hand-written digits
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what-do-the-components-mean">
-     31.1.3. What do the components mean?
+     32.1.3. What do the components mean?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#choosing-the-number-of-components">
-     31.1.4. Choosing the number of components
+     32.1.4. Choosing the number of components
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pca-as-noise-filtering">
-   31.2. PCA as Noise Filtering
+   32.2. PCA as Noise Filtering
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-eigenfaces">
-   31.3. Example: Eigenfaces
+   32.3. Example: Eigenfaces
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#principal-component-analysis-summary">
-   31.4. Principal Component Analysis Summary
+   32.4. Principal Component Analysis Summary
   </a>
  </li>
 </ul>
@@ -788,44 +674,44 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introducing-principal-component-analysis">
-   31.1. Introducing Principal Component Analysis
+   32.1. Introducing Principal Component Analysis
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pca-as-dimensionality-reduction">
-     31.1.1. PCA as dimensionality reduction
+     32.1.1. PCA as dimensionality reduction
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pca-for-visualization-hand-written-digits">
-     31.1.2. PCA for visualization: Hand-written digits
+     32.1.2. PCA for visualization: Hand-written digits
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what-do-the-components-mean">
-     31.1.3. What do the components mean?
+     32.1.3. What do the components mean?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#choosing-the-number-of-components">
-     31.1.4. Choosing the number of components
+     32.1.4. Choosing the number of components
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pca-as-noise-filtering">
-   31.2. PCA as Noise Filtering
+   32.2. PCA as Noise Filtering
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-eigenfaces">
-   31.3. Example: Eigenfaces
+   32.3. Example: Eigenfaces
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#principal-component-analysis-summary">
-   31.4. Principal Component Analysis Summary
+   32.4. Principal Component Analysis Summary
   </a>
  </li>
 </ul>
@@ -842,8 +728,8 @@ title="Print to PDF"
 <img align="left" style="padding-right:10px;" src="figures/PDSH-cover-small.png">
 <p><em>This notebook contains an excerpt from the <a class="reference external" href="http://shop.oreilly.com/product/0636920034919.do">Python Data Science Handbook</a> by Jake VanderPlas; the content is available <a class="reference external" href="https://github.com/jakevdp/PythonDataScienceHandbook">on GitHub</a>.</em></p>
 <p><em>The text is released under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>, and code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work by <a class="reference external" href="http://shop.oreilly.com/product/0636920034919.do">buying the book</a>!</em></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="in-depth-principal-component-analysis">
-<h1><span class="section-number">31. </span>In Depth: Principal Component Analysis<a class="headerlink" href="#in-depth-principal-component-analysis" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="in-depth-principal-component-analysis">
+<h1><span class="section-number">32. </span>In Depth: Principal Component Analysis<a class="headerlink" href="#in-depth-principal-component-analysis" title="Permalink to this headline">#</a></h1>
 <p>Up until now, we have been looking in depth at supervised learning estimators: those estimators that predict labels based on labeled training data.
 Here we begin looking at several unsupervised estimators, which can highlight interesting aspects of the data without reference to any known labels.</p>
 <p>In this section, we explore what is perhaps one of the most broadly used of unsupervised algorithms, principal component analysis (PCA).
@@ -860,8 +746,8 @@ After a brief conceptual discussion of the PCA algorithm, we will see a couple e
 </div>
 </div>
 </div>
-<div class="section" id="introducing-principal-component-analysis">
-<h2><span class="section-number">31.1. </span>Introducing Principal Component Analysis<a class="headerlink" href="#introducing-principal-component-analysis" title="Permalink to this headline">#</a></h2>
+<section id="introducing-principal-component-analysis">
+<h2><span class="section-number">32.1. </span>Introducing Principal Component Analysis<a class="headerlink" href="#introducing-principal-component-analysis" title="Permalink to this headline">#</a></h2>
 <p>Principal component analysis is a fast and flexible unsupervised method for dimensionality reduction in data, which we saw briefly in <span class="xref myst">Introducing Scikit-Learn</span>.
 Its behavior is easiest to visualize by looking at a two-dimensional dataset.
 Consider the following 200 points:</p>
@@ -952,8 +838,8 @@ The projection of each data point onto the principal axes are the “principal c
 <a class="reference external" href="06.00-Figure-Code.ipynb#Principal-Components-Rotation">figure source in Appendix</a></p>
 <p>This transformation from data axes to principal axes is an <em>affine transformation</em>, which basically means it is composed of a translation, rotation, and uniform scaling.</p>
 <p>While this algorithm to find principal components may seem like just a mathematical curiosity, it turns out to have very far-reaching applications in the world of machine learning and data exploration.</p>
-<div class="section" id="pca-as-dimensionality-reduction">
-<h3><span class="section-number">31.1.1. </span>PCA as dimensionality reduction<a class="headerlink" href="#pca-as-dimensionality-reduction" title="Permalink to this headline">#</a></h3>
+<section id="pca-as-dimensionality-reduction">
+<h3><span class="section-number">32.1.1. </span>PCA as dimensionality reduction<a class="headerlink" href="#pca-as-dimensionality-reduction" title="Permalink to this headline">#</a></h3>
 <p>Using PCA for dimensionality reduction involves zeroing out one or more of the smallest principal components, resulting in a lower-dimensional projection of the data that preserves the maximal data variance.</p>
 <p>Here is an example of using PCA as a dimensionality reduction transform:</p>
 <div class="cell docutils container">
@@ -992,9 +878,9 @@ To understand the effect of this dimensionality reduction, we can perform the in
 This makes clear what a PCA dimensionality reduction means: the information along the least important principal axis or axes is removed, leaving only the component(s) of the data with the highest variance.
 The fraction of variance that is cut out (proportional to the spread of points about the line formed in this figure) is roughly a measure of how much “information” is discarded in this reduction of dimensionality.</p>
 <p>This reduced-dimension dataset is in some senses “good enough” to encode the most important relationships between the points: despite reducing the dimension of the data by 50%, the overall relationship between the data points are mostly preserved.</p>
-</div>
-<div class="section" id="pca-for-visualization-hand-written-digits">
-<h3><span class="section-number">31.1.2. </span>PCA for visualization: Hand-written digits<a class="headerlink" href="#pca-for-visualization-hand-written-digits" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="pca-for-visualization-hand-written-digits">
+<h3><span class="section-number">32.1.2. </span>PCA for visualization: Hand-written digits<a class="headerlink" href="#pca-for-visualization-hand-written-digits" title="Permalink to this headline">#</a></h3>
 <p>The usefulness of the dimensionality reduction may not be entirely apparent in only two dimensions, but becomes much more clear when looking at high-dimensional data.
 To see this, let’s take a quick look at the application of PCA to the digits data we saw in <span class="xref myst">In-Depth: Decision Trees and Random Forests</span>.</p>
 <p>We start by loading the data:</p>
@@ -1048,9 +934,9 @@ To gain some intuition into the relationships between these points, we can use P
 </div>
 <p>Recall what these components mean: the full data is a 64-dimensional point cloud, and these points are the projection of each data point along the directions with the largest variance.
 Essentially, we have found the optimal stretch and rotation in 64-dimensional space that allows us to see the layout of the digits in two dimensions, and have done this in an unsupervised manner—that is, without reference to the labels.</p>
-</div>
-<div class="section" id="what-do-the-components-mean">
-<h3><span class="section-number">31.1.3. </span>What do the components mean?<a class="headerlink" href="#what-do-the-components-mean" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="what-do-the-components-mean">
+<h3><span class="section-number">32.1.3. </span>What do the components mean?<a class="headerlink" href="#what-do-the-components-mean" title="Permalink to this headline">#</a></h3>
 <p>We can go a bit further here, and begin to ask what the reduced dimensions <em>mean</em>.
 This meaning can be understood in terms of combinations of basis vectors.
 For example, each image in the training set is defined by a collection of 64 pixel values, which we will call the vector <span class="math notranslate nohighlight">\(x\)</span>:</p>
@@ -1084,9 +970,9 @@ This figure shows a similar depiction of reconstructing this digit using the mea
 <p>Unlike the pixel basis, the PCA basis allows us to recover the salient features of the input image with just a mean plus eight components!
 The amount of each pixel in each component is the corollary of the orientation of the vector in our two-dimensional example.
 This is the sense in which PCA provides a low-dimensional representation of the data: it discovers a set of basis functions that are more efficient than the native pixel-basis of the input data.</p>
-</div>
-<div class="section" id="choosing-the-number-of-components">
-<h3><span class="section-number">31.1.4. </span>Choosing the number of components<a class="headerlink" href="#choosing-the-number-of-components" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="choosing-the-number-of-components">
+<h3><span class="section-number">32.1.4. </span>Choosing the number of components<a class="headerlink" href="#choosing-the-number-of-components" title="Permalink to this headline">#</a></h3>
 <p>A vital part of using PCA in practice is the ability to estimate how many components are needed to describe the data.
 This can be determined by looking at the cumulative <em>explained variance ratio</em> as a function of the number of components:</p>
 <div class="cell docutils container">
@@ -1105,10 +991,10 @@ This can be determined by looking at the cumulative <em>explained variance ratio
 <p>This curve quantifies how much of the total, 64-dimensional variance is contained within the first <span class="math notranslate nohighlight">\(N\)</span> components.
 For example, we see that with the digits the first 10 components contain approximately 75% of the variance, while you need around 50 components to describe close to 100% of the variance.</p>
 <p>Here we see that our two-dimensional projection loses a lot of information (as measured by the explained variance) and that we’d need about 20 components to retain 90% of the variance.  Looking at this plot for a high-dimensional dataset can help you understand the level of redundancy present in multiple observations.</p>
-</div>
-</div>
-<div class="section" id="pca-as-noise-filtering">
-<h2><span class="section-number">31.2. </span>PCA as Noise Filtering<a class="headerlink" href="#pca-as-noise-filtering" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="pca-as-noise-filtering">
+<h2><span class="section-number">32.2. </span>PCA as Noise Filtering<a class="headerlink" href="#pca-as-noise-filtering" title="Permalink to this headline">#</a></h2>
 <p>PCA can also be used as a filtering approach for noisy data.
 The idea is this: any components with variance much larger than the effect of the noise should be relatively unaffected by the noise.
 So if you reconstruct the data using just the largest subset of principal components, you should be preferentially keeping the signal and throwing out the noise.</p>
@@ -1175,9 +1061,9 @@ Now we compute these components, and then use the inverse of the transform to re
 </div>
 </div>
 <p>This signal preserving/noise filtering property makes PCA a very useful feature selection routine—for example, rather than training a classifier on very high-dimensional data, you might instead train the classifier on the lower-dimensional representation, which will automatically serve to filter out random noise in the inputs.</p>
-</div>
-<div class="section" id="example-eigenfaces">
-<h2><span class="section-number">31.3. </span>Example: Eigenfaces<a class="headerlink" href="#example-eigenfaces" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="example-eigenfaces">
+<h2><span class="section-number">32.3. </span>Example: Eigenfaces<a class="headerlink" href="#example-eigenfaces" title="Permalink to this headline">#</a></h2>
 <p>Earlier we explored an example of using a PCA projection as a feature selector for facial recognition with a support vector machine (see <span class="xref myst">In-Depth: Support Vector Machines</span>).
 Here we will take a look back and explore a bit more of what went into that.
 Recall that we were using the Labeled Faces in the Wild dataset made available through Scikit-Learn:</p>
@@ -1282,9 +1168,9 @@ To make this more concrete, we can compare the input images with the images reco
 <p>The top row here shows the input images, while the bottom row shows the reconstruction of the images from just 150 of the ~3,000 initial features.
 This visualization makes clear why the PCA feature selection used in <span class="xref myst">In-Depth: Support Vector Machines</span> was so successful: although it reduces the dimensionality of the data by nearly a factor of 20, the projected images contain enough information that we might, by eye, recognize the individuals in the image.
 What this means is that our classification algorithm needs to be trained on 150-dimensional data rather than 3,000-dimensional data, which depending on the particular algorithm we choose, can lead to a much more efficient classification.</p>
-</div>
-<div class="section" id="principal-component-analysis-summary">
-<h2><span class="section-number">31.4. </span>Principal Component Analysis Summary<a class="headerlink" href="#principal-component-analysis-summary" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="principal-component-analysis-summary">
+<h2><span class="section-number">32.4. </span>Principal Component Analysis Summary<a class="headerlink" href="#principal-component-analysis-summary" title="Permalink to this headline">#</a></h2>
 <p>In this section we have discussed the use of principal component analysis for dimensionality reduction, for visualization of high-dimensional data, for noise filtering, and for feature selection within high-dimensional data.
 Because of the versatility and interpretability of PCA, it has been shown to be effective in a wide variety of contexts and disciplines.
 Given any high-dimensional dataset, I tend to start with PCA in order to visualize the relationship between points (as we did with the digits), to understand the main variance in the data (as we did with the eigenfaces), and to understand the intrinsic dimensionality (by plotting the explained variance ratio).
@@ -1294,8 +1180,8 @@ For this reason, many robust variants of PCA have been developed, many of which 
 Scikit-Learn contains a couple interesting variants on PCA, including <code class="docutils literal notranslate"><span class="pre">RandomizedPCA</span></code> and <code class="docutils literal notranslate"><span class="pre">SparsePCA</span></code>, both also in the <code class="docutils literal notranslate"><span class="pre">sklearn.decomposition</span></code> submodule.
 <code class="docutils literal notranslate"><span class="pre">RandomizedPCA</span></code>, which we saw earlier, uses a non-deterministic method to quickly approximate the first few principal components in very high-dimensional data, while <code class="docutils literal notranslate"><span class="pre">SparsePCA</span></code> introduces a regularization term (see <span class="xref myst">In Depth: Linear Regression</span>) that serves to enforce sparsity of the components.</p>
 <p>In the following sections, we will look at other unsupervised learning methods that build on some of the ideas of PCA.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1328,13 +1214,13 @@ Scikit-Learn contains a couple interesting variants on PCA, including <code clas
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">30. </span>Introduction to Principal Component Analysis</p>
+            <p class="prev-next-title"><span class="section-number">31. </span>Introduction to Principal Component Analysis</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="nb-06-03-kmeans.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">32. </span>k-Means Clustering</p>
+        <p class="prev-next-title"><span class="section-number">33. </span>k-Means Clustering</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -1347,7 +1233,7 @@ Scikit-Learn contains a couple interesting variants on PCA, including <code clas
   
     By Jason Kuruzovich<br/>
   
-      &copy; Copyright 2021.<br/>
+      &copy; Copyright 2022.<br/>
 </p>
         </footer>
     </div>

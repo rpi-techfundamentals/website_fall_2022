@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>30. Introduction to Principal Component Analysis &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>31. Introduction to Principal Component Analysis &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="31. In Depth: Principal Component Analysis" href="nb-06-02-pca2.html" />
-    <link rel="prev" title="29. Regression with Stats-Models" href="nb-05-04-stats-models.html" />
+    <link rel="next" title="32. In Depth: Principal Component Analysis" href="nb-06-02-pca2.html" />
+    <link rel="prev" title="30. Regression with Stats-Models" href="nb-05-04-stats-models.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -126,18 +127,6 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  OVERVIEW
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/schedule.html">
-   Schedule
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
   NOTEBOOKS
  </span>
 </p>
@@ -149,307 +138,207 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-01-02-datastructures.html">
-   2. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
+   3. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-01-03-numpy.html">
-   3. Overview of Numpy
+   4. Overview of Numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-01-04-pandas.html">
-   4. Introduction to Pandas
+   5. Introduction to Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-01-conditionals-loops.html">
-   5. Conditional Statements and Loops
+   6. Conditional Statements and Loops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-02-functions.html">
-   6. Functions
+   7. Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-02a-pandas-functions.html">
-   7. Introduction to Apply Function
+   8. Introduction to Apply Function
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-03-null-values.html">
-   8. Null Values
+   9. Null Values
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-04-groupby.html">
-   9. Groupby and Pivot Tables
+   10. Groupby and Pivot Tables
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-04-pivottable.html">
-   10. More Pivottables
+   11. More Pivottables
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-05-kaggle-baseline.html">
-   11. Kaggle Baseline
+   12. Kaggle Baseline
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-EX-Exercise1.html">
-   12. Exercise 1
+   13. Exercise 1
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-01-features-dummies.html">
-   13. Feature Extraction
+   14. Feature Extraction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-02-strings-regular-expressions.html">
-   15. String Manipulation and Regular Expressions
+   16. String Manipulation and Regular Expressions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-03-visualization-python-seaborn.html">
-   16. Introduction to Seaborn
+   17. Introduction to Seaborn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-04-intro-python-webmining.html">
-   17. Web Mining
+   18. Web Mining
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-06-matplotlib.html">
-   18. MatplotLab
+   19. MatplotLab
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-01-neural-networks.html">
-   19. Neural Networks and the Simplist XOR Problem
+   20. Neural Networks and the Simplist XOR Problem
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-02-train-test-split.html">
-   20. Train Test Splits
+   21. Train Test Splits
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-03-intro-logistic-knn.html">
-   21. Classification with Scikit-learn
+   22. Classification with Scikit-learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-04-knn.html">
-   22. KNN
+   23. KNN
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-05-revisit-titanic0.html">
-   23. Titanic Classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-04-06-revisit-titanic.html">
    24. Titanic Classification
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-06-revisit-titanic.html">
+   25. Titanic Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="nb-04-07-titanic-features.html">
-   25. Basic Text Feature Creation in Python
+   26. Basic Text Feature Creation in Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-01-matrix-regression-gradient-decent-python.html">
-   26. Linear Regression
+   27. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-02-regression-boston-housing-python.html">
-   27. Boston Housing
+   28. Boston Housing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-03-ridge-lasso-python.html">
-   28. Lasso Ridge Regression
+   29. Lasso Ridge Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-04-stats-models.html">
-   29. Regression with Stats-Models
+   30. Regression with Stats-Models
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   30. Introduction to Principal Component Analysis
+   31. Introduction to Principal Component Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-06-02-pca2.html">
-   31. In Depth: Principal Component Analysis
+   32. In Depth: Principal Component Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-06-03-kmeans.html">
-   32. k-Means Clustering
+   33. k-Means Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-06-04-covid19.html">
-   33. Coronavirus Data Modeling
+   34. Coronavirus Data Modeling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-00-corpus-simple.html">
-   34. Introduction to Text Mining in Python
+   35. Introduction to Text Mining in Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-01-intro-nlp.html">
-   35. Natural Language Toolkit
+   36. Natural Language Toolkit
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-02-scikit-learn-text.html">
-   36. Bag-of-Words Using Scikit Learn
+   37. Bag-of-Words Using Scikit Learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-03-what-cooking-python.html">
-   37. What’s Cooking in Python
+   38. What’s Cooking in Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-05-bag-popcorn-bag-words.html">
-   38. Bag of Words
+   39. Bag of Words
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-06-sentiment.html">
-   39. Sentiment Analysis
+   40. Sentiment Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-07-sentimentB.html">
-   41. Lecture-21: Introduction to Natural Language Processing
+   42. Lecture-21: Introduction to Natural Language Processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-08-fastai-imdb.html">
-   43. IMDB
+   44. IMDB
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-09-intro2.html">
-   44. Introduction to Natural Language Processing
+   45. Introduction to Natural Language Processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-10-vectorization.html">
-   45. Vectorizors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-08-01-midterm_sample.html">
-   47. Sample Coding Midterm.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-09-01-time-series.html">
-   48. Time Series Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-09-02-forcasting-rossman.html">
-   49. Panel Data vs Time Series Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-00-evaluation.html">
-   51. Evaluation of Classifiers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-00-neural-networks.html">
-   52. Neural Networks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-01-tensorflow.html">
-   53. Tensorflow Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-02-tensor-tutorial.html">
-   56. Pytorch Tensors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-03-pytorch-iris.html">
-   57. Revisiting IRIS with PyTorch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-04-covnet-tutorial.html">
-   58. Convolutional Neural Network with Pytorch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-04-pytorch-explainer.html">
-   59. PyTorch Deep Explainer MNIST example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-04_pytorch_mnist1.html">
-   60. Pytorch Advantages vs Tensorflow
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-05-pytorch-mnist.html">
-   61. PyTorch Deep Explainer MNIST example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-06-regression-bh-pytorch.html">
-   62. Revisting Boston Housing with Pytorch
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-06_tensorflow_minst.html">
-   63. Setup
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-07-titanic-fastai.html">
-   64. Titanic Fastai
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-08-ludwig.html">
-   65. Ludwig
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-09-vectorization-transfer.html">
-   66. Transfer Learning - NLP
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-10-deeplearningtitanic.html">
-   68. Titanic Classification - Deep Learning Tensorflow
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-11-deeplearningregression.html">
-   70. Regression with Tensorflow/Keras
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-10-99_intro_tensorflow.html">
-   71. Tensorflow Graph Creation
+   46. Vectorizors
   </a>
  </li>
 </ul>
@@ -461,37 +350,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/hw-1.html">
-   1. Homework-1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/hw-2.html">
-   14. Homework-2
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/hw-3.html">
-   31. Homework-3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/hw-4.html">
-   42. Homework-4
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/hw-5.html">
-   54. Homework-5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/hw-7.html">
-   62. Homework-7
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/hw-final.html">
-   77. Final Exam
+   1. Assignment-1
   </a>
  </li>
 </ul>
@@ -502,7 +361,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference external" href="https://rpi.box.com/s/2rivfabp5r2sc224nwgv3en1cmks3cec">
+  <a class="reference external" href="https://rpi.box.com/s/n53px4yfo4jpfh7qnz7qry8vecopj3np">
    Box Link
   </a>
  </li>
@@ -512,28 +371,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/ageron/handson-ml2">
-   Hands On Machine Learning with Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/fastai/fastbook">
-   Fast.ai Book
+  <a class="reference external" href="https://d2l.ai">
+   Dive into Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="https://www.tensorflow.org/tutorials">
    Tensorflow Tutorials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://pytorch.org/tutorials/">
-   Pytorch Tutorials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://www.kaggle.com/learn/intro-to-deep-learning">
-   Kaggle Introduction to Deep Learning Course
   </a>
  </li>
  <li class="toctree-l1">
@@ -602,7 +446,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/rpi-techfundamentals/website_fall_2021/master?urlpath=tree/site/notebooks/nb-06-01-introduction-pca.ipynb"
+        <a href="https://mybinder.org/v2/gh/rpi-techfundamentals/website_fall_2022/master?urlpath=tree/site/notebooks/nb-06-01-introduction-pca.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -620,7 +464,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/rpi-techfundamentals/website_fall_2021/blob/master/site/notebooks/nb-06-01-introduction-pca.ipynb"
+        <a href="https://colab.research.google.com/github/rpi-techfundamentals/website_fall_2022/blob/master/site/notebooks/nb-06-01-introduction-pca.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -663,7 +507,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/rpi-techfundamentals/website_fall_2021"
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2022"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -680,7 +524,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/rpi-techfundamentals/website_fall_2021/issues/new?title=Issue%20on%20page%20%2Fnotebooks/nb-06-01-introduction-pca.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/nb-06-01-introduction-pca.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -769,52 +613,52 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sections">
-   30.1. Sections:
+   31.1. Sections:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#origin">
-   30.2. Origin
+   31.2. Origin
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#learning-objective">
-   30.3. Learning Objective
+   31.3. Learning Objective
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pca">
-   30.4. PCA
+   31.4. PCA
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#eigenvectors">
-   30.5. Eigenvectors
+   31.5. Eigenvectors
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#generating-data">
-   30.6. Generating Data
+   31.6. Generating Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#running-pca">
-   30.7. Running PCA
+   31.7. Running PCA
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#high-dimensional-data">
-   30.8. High-Dimensional Data
+   31.8. High-Dimensional Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dimension-reduction-with-pca">
-   30.9. Dimension Reduction with PCA
+   31.9. Dimension Reduction with PCA
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#homework">
-   30.10. Homework
+   31.10. Homework
   </a>
  </li>
 </ul>
@@ -838,52 +682,52 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sections">
-   30.1. Sections:
+   31.1. Sections:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#origin">
-   30.2. Origin
+   31.2. Origin
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#learning-objective">
-   30.3. Learning Objective
+   31.3. Learning Objective
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pca">
-   30.4. PCA
+   31.4. PCA
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#eigenvectors">
-   30.5. Eigenvectors
+   31.5. Eigenvectors
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#generating-data">
-   30.6. Generating Data
+   31.6. Generating Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#running-pca">
-   30.7. Running PCA
+   31.7. Running PCA
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#high-dimensional-data">
-   30.8. High-Dimensional Data
+   31.8. High-Dimensional Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dimension-reduction-with-pca">
-   30.9. Dimension Reduction with PCA
+   31.9. Dimension Reduction with PCA
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#homework">
-   30.10. Homework
+   31.10. Homework
   </a>
  </li>
 </ul>
@@ -896,11 +740,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-principal-component-analysis">
-<h1><span class="section-number">30. </span>Introduction to Principal Component Analysis<a class="headerlink" href="#introduction-to-principal-component-analysis" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-principal-component-analysis">
+<h1><span class="section-number">31. </span>Introduction to Principal Component Analysis<a class="headerlink" href="#introduction-to-principal-component-analysis" title="Permalink to this headline">#</a></h1>
 <p>Contributers: Linghao Dong, Josh Beck, Jose Figueroa, Yuvraj Chopra</p>
-<div class="section" id="sections">
-<h2><span class="section-number">30.1. </span>Sections:<a class="headerlink" href="#sections" title="Permalink to this headline">#</a></h2>
+<section id="sections">
+<h2><span class="section-number">31.1. </span>Sections:<a class="headerlink" href="#sections" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#PCA-(Principal-Component-Analysis)">PCA (Principal Component Analysis)</a></p></li>
 <li><p><a class="reference external" href="#Origin">Origin</a></p></li>
@@ -910,29 +754,29 @@ title="Print to PDF"
 <li><p><a class="reference external" href="#Running-PCA">Running PCA</a></p></li>
 <li><p><a class="reference external" href="#Homework">Homework</a></p></li>
 </ul>
-</div>
-<div class="section" id="origin">
-<h2><span class="section-number">30.2. </span>Origin<a class="headerlink" href="#origin" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="origin">
+<h2><span class="section-number">31.2. </span>Origin<a class="headerlink" href="#origin" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>This notebook was adapted from amueller’s notebook, “<em>1 - PCA</em>”. Here is the link to his repository <a class="reference external" href="https://github.com/amueller/tutorial_ml_gkbionics.git">https://github.com/amueller/tutorial_ml_gkbionics.git</a> .</p>
 <p>This notebook provides examples for eigenvalues and eigenvectors in LaTeX and python.</p>
-</div>
-<div class="section" id="learning-objective">
-<h2><span class="section-number">30.3. </span>Learning Objective<a class="headerlink" href="#learning-objective" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="learning-objective">
+<h2><span class="section-number">31.3. </span>Learning Objective<a class="headerlink" href="#learning-objective" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <ol class="simple">
 <li><p>How the Principal Componenet Analysis (PCA) works.</p></li>
 <li><p>How PCA can be used to do dimensionality reduction.</p></li>
 <li><p>Understand how PCA deals with the covariance matrix by applying eigenvectors.</p></li>
 </ol>
-</div>
-<div class="section" id="pca">
-<h2><span class="section-number">30.4. </span>PCA<a class="headerlink" href="#pca" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="pca">
+<h2><span class="section-number">31.4. </span>PCA<a class="headerlink" href="#pca" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>PCA can always be used to simplify the data with high dimensions (larger than 2) into 2-dimensional data by eliminating the least influntial features on the data. However, we should know the elimination of data makes the independent variable less interpretable. Before we start to deal with the PCA, we need to first learn how PCA utilizes eigenvectors to gain a diagonalization covariance matrix.</p>
-</div>
-<div class="section" id="eigenvectors">
-<h2><span class="section-number">30.5. </span>Eigenvectors<a class="headerlink" href="#eigenvectors" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="eigenvectors">
+<h2><span class="section-number">31.5. </span>Eigenvectors<a class="headerlink" href="#eigenvectors" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>Eigenvectors and eigenvalues are the main tools used by PCA to obtain a diagnolization covariance matrix. The eigenvector is a vector whos direction will not be affected by the linear transformation, hence eigenvectors represents the direction of largest variance of data while the eigenvalue decides the magnitude of this variance in those directions.</p>
 <p>Here we using a simple (2x2) matrix <span class="math notranslate nohighlight">\(A\)</span> to explain it.
@@ -1095,9 +939,9 @@ $<span class="math notranslate nohighlight">\(
 \end{bmatrix}
 \)</span>$
 Luckily, PCA can do all of this by applyng the function <code class="docutils literal notranslate"><span class="pre">pca.fit_transform(x)</span></code> and <code class="docutils literal notranslate"><span class="pre">np.cov()</span></code></p>
-</div>
-<div class="section" id="generating-data">
-<h2><span class="section-number">30.6. </span>Generating Data<a class="headerlink" href="#generating-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="generating-data">
+<h2><span class="section-number">31.6. </span>Generating Data<a class="headerlink" href="#generating-data" title="Permalink to this headline">#</a></h2>
 <p>To talking about PCA, we first create 200 random two-dimensional data points and have a look at the raw data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1370,9 +1214,9 @@ Luckily, PCA can do all of this by applyng the function <code class="docutils li
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="running-pca">
-<h2><span class="section-number">30.7. </span>Running PCA<a class="headerlink" href="#running-pca" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="running-pca">
+<h2><span class="section-number">31.7. </span>Running PCA<a class="headerlink" href="#running-pca" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>We would now like to analyze the directions in which the data varies most. For that, we</p>
 <ol class="simple">
@@ -1448,9 +1292,9 @@ Luckily, PCA can do all of this by applyng the function <code class="docutils li
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="high-dimensional-data">
-<h2><span class="section-number">30.8. </span>High-Dimensional Data<a class="headerlink" href="#high-dimensional-data" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="high-dimensional-data">
+<h2><span class="section-number">31.8. </span>High-Dimensional Data<a class="headerlink" href="#high-dimensional-data" title="Permalink to this headline">#</a></h2>
 <p>Our small example above was very easy, since we could get insight into the data by simply plotting it. This approach will not work once you have more than 3 dimensions, Let’s use the famous iris dataset, which has the following 4 dimensions:</p>
 <ul class="simple">
 <li><p>Sepal Length</p></li>
@@ -1785,9 +1629,9 @@ bezdekIris.data.1   100%[===================&gt;]   4.44K  --.-KB/s    in 0s
 </div>
 </div>
 <p>It is easy to see that the correlation between other dimensions (other than first two) was ambiguous and highly concentrated in either horizontal or vertical line. This fact suggests that there are large difference between the dimension we select so that <strong>the weak dimension cant change too much on the shape of graph</strong>.</p>
-</div>
-<div class="section" id="dimension-reduction-with-pca">
-<h2><span class="section-number">30.9. </span>Dimension Reduction with PCA<a class="headerlink" href="#dimension-reduction-with-pca" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="dimension-reduction-with-pca">
+<h2><span class="section-number">31.9. </span>Dimension Reduction with PCA<a class="headerlink" href="#dimension-reduction-with-pca" title="Permalink to this headline">#</a></h2>
 <p>We can see that there are actually only two dimensions in the dataset.</p>
 <p>Let’s throw away even more data – the second dimension – and reconstruct the original data in <code class="docutils literal notranslate"><span class="pre">D</span></code>.</p>
 <div class="cell docutils container">
@@ -1831,9 +1675,9 @@ bezdekIris.data.1   100%[===================&gt;]   4.44K  --.-KB/s    in 0s
 <img alt="../_images/nb-06-01-introduction-pca_59_0.png" src="../_images/nb-06-01-introduction-pca_59_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="homework">
-<h2><span class="section-number">30.10. </span>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="homework">
+<h2><span class="section-number">31.10. </span>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <ol class="simple">
 <li><p>Do the PCA reduction on the ramdon 6-dimension data and plot it out.</p></li>
@@ -1879,8 +1723,8 @@ bezdekIris.data.1   100%[===================&gt;]   4.44K  --.-KB/s    in 0s
 <img alt="../_images/nb-06-01-introduction-pca_62_0.png" src="../_images/nb-06-01-introduction-pca_62_0.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1913,13 +1757,13 @@ bezdekIris.data.1   100%[===================&gt;]   4.44K  --.-KB/s    in 0s
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">29. </span>Regression with Stats-Models</p>
+            <p class="prev-next-title"><span class="section-number">30. </span>Regression with Stats-Models</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="nb-06-02-pca2.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">31. </span>In Depth: Principal Component Analysis</p>
+        <p class="prev-next-title"><span class="section-number">32. </span>In Depth: Principal Component Analysis</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -1932,7 +1776,7 @@ bezdekIris.data.1   100%[===================&gt;]   4.44K  --.-KB/s    in 0s
   
     By Jason Kuruzovich<br/>
   
-      &copy; Copyright 2021.<br/>
+      &copy; Copyright 2022.<br/>
 </p>
         </footer>
     </div>
