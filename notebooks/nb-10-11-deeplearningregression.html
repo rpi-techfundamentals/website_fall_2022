@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>70. Regression with Tensorflow/Keras &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>81. Regression with Tensorflow/Keras &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="71. Tensorflow Graph Creation" href="nb-10-99_intro_tensorflow.html" />
-    <link rel="prev" title="68. Titanic Classification - Deep Learning Tensorflow" href="nb-10-10-deeplearningtitanic.html" />
+    <link rel="next" title="82. Tensorflow Graph Creation" href="nb-10-99_intro_tensorflow.html" />
+    <link rel="prev" title="79. Titanic Classification - Deep Learning Tensorflow" href="nb-10-10-deeplearningtitanic.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -124,18 +125,6 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  OVERVIEW
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../content/schedule.html">
-   Schedule
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
   NOTEBOOKS
  </span>
 </p>
@@ -147,307 +136,347 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-01-02-datastructures.html">
-   2. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
+   3. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-01-03-numpy.html">
-   3. Overview of Numpy
+   4. Overview of Numpy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-01-04-pandas.html">
-   4. Introduction to Pandas
+   5. Introduction to Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-01-conditionals-loops.html">
-   5. Conditional Statements and Loops
+   6. Conditional Statements and Loops
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-02-functions.html">
-   6. Functions
+   7. Functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-02a-pandas-functions.html">
-   7. Introduction to Apply Function
+   8. Introduction to Apply Function
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-03-null-values.html">
-   8. Null Values
+   9. Null Values
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-04-groupby.html">
-   9. Groupby and Pivot Tables
+   10. Groupby and Pivot Tables
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-04-pivottable.html">
-   10. More Pivottables
+   11. More Pivottables
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-05-kaggle-baseline.html">
-   11. Kaggle Baseline
+   12. Kaggle Baseline
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-02-EX-Exercise1.html">
-   12. Exercise 1
+   13. Exercise 1
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-01-features-dummies.html">
-   13. Feature Extraction
+   14. Feature Extraction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-02-strings-regular-expressions.html">
-   15. String Manipulation and Regular Expressions
+   16. String Manipulation and Regular Expressions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-03-visualization-python-seaborn.html">
-   16. Introduction to Seaborn
+   17. Introduction to Seaborn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-04-intro-python-webmining.html">
-   17. Web Mining
+   18. Web Mining
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-03-06-matplotlib.html">
-   18. MatplotLab
+   19. MatplotLab
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-01-neural-networks.html">
-   19. Neural Networks and the Simplist XOR Problem
+   20. Neural Networks and the Simplist XOR Problem
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-02-train-test-split.html">
-   20. Train Test Splits
+   21. Train Test Splits
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="nb-04-03-intro-logistic-knn.html">
-   21. Classification with Scikit-learn
+  <a class="reference internal" href="nb-04-03-intro_logistic.html">
+   22. Classification with Scikit-learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-04-knn.html">
-   22. KNN
+   23. KNN
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-04-05-revisit-titanic0.html">
-   23. Titanic Classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nb-04-06-revisit-titanic.html">
    24. Titanic Classification
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-06-revisit-titanic.html">
+   25. Titanic Classification - Challenge Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-06-revisit-titanic-visualize_decision_tree.html">
+   26. Titanic Classification - Titanic Visualize Decision Tree
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="nb-04-07-titanic-features.html">
-   25. Basic Text Feature Creation in Python
+   27. Basic Text Feature Creation in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-08-regression_titanic.html">
+   28. Titanic Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-09-standardization.html">
+   29. Titanic Standardization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-10-pca.html">
+   30. Titanic PCA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-11-cluster-analysis.html">
+   32. Titanic Cluster
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-01-matrix-regression-gradient-decent-python.html">
-   26. Linear Regression
+   34. Linear Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-02-regression-boston-housing-python.html">
-   27. Boston Housing
+   35. Boston Housing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-03-ridge-lasso-python.html">
-   28. Lasso Ridge Regression
+   36. Lasso Ridge Regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-05-04-stats-models.html">
-   29. Regression with Stats-Models
+   37. Regression with Stats-Models
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-06-01-introduction-pca.html">
-   30. Introduction to Principal Component Analysis
+   38. Introduction to Principal Component Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-06-02-pca2.html">
-   31. In Depth: Principal Component Analysis
+   39. In Depth: Principal Component Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-06-03-kmeans.html">
-   32. k-Means Clustering
+   40. k-Means Clustering
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-06-04-covid19.html">
-   33. Coronavirus Data Modeling
+   41. Coronavirus Data Modeling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-00-corpus-simple.html">
-   34. Introduction to Text Mining in Python
+   42. Introduction to Text Mining in Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-01-intro-nlp.html">
-   35. Natural Language Toolkit
+   43. Natural Language Toolkit
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-02-scikit-learn-text.html">
-   36. Bag-of-Words Using Scikit Learn
+   44. Bag-of-Words Using Scikit Learn
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-03-what-cooking-python.html">
-   37. What’s Cooking in Python
+   45. What’s Cooking in Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-05-bag-popcorn-bag-words.html">
-   38. Bag of Words
+   46. Bag of Words
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-06-sentiment.html">
-   39. Sentiment Analysis
+   47. Sentiment Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-07-sentimentB.html">
-   41. Lecture-21: Introduction to Natural Language Processing
+   49. Lecture-21: Introduction to Natural Language Processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-08-fastai-imdb.html">
-   43. IMDB
+   51. IMDB
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-09-intro2.html">
-   44. Introduction to Natural Language Processing
+   52. Introduction to Natural Language Processing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-07-10-vectorization.html">
-   45. Vectorizors
+   53. Vectorizors
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-08-01-midterm_sample.html">
-   47. Sample Coding Midterm.
+   55. Sample Coding Midterm.
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-09-01-time-series.html">
-   48. Time Series Data
+   56. Time Series Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-09-02-forcasting-rossman.html">
-   49. Panel Data vs Time Series Analysis
+   57. Panel Data vs Time Series Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-09-03-time_series.html">
+   59. Time Series Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-09-04-ma_ar_arma.html">
+   60. MA, AR, and Arma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-09-05-out_sample_predication.html">
+   61. Out of Sample Prediction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-00-evaluation.html">
-   51. Evaluation of Classifiers
+   62. Evaluation of Classifiers
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-00-neural-networks.html">
-   52. Neural Networks
+   63. Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-01-tensorflow.html">
-   53. Tensorflow Introduction
+   64. Tensorflow Introduction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-02-tensor-tutorial.html">
-   56. Pytorch Tensors
+   67. Pytorch Tensors
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-03-pytorch-iris.html">
-   57. Revisiting IRIS with PyTorch
+   68. Revisiting IRIS with PyTorch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-04-covnet-tutorial.html">
-   58. Convolutional Neural Network with Pytorch
+   69. Convolutional Neural Network with Pytorch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-04-pytorch-explainer.html">
-   59. PyTorch Deep Explainer MNIST example
+   70. PyTorch Deep Explainer MNIST example
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-04_pytorch_mnist1.html">
-   60. Pytorch Advantages vs Tensorflow
+   71. Pytorch Advantages vs Tensorflow
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-05-pytorch-mnist.html">
-   61. PyTorch Deep Explainer MNIST example
+   72. PyTorch Deep Explainer MNIST example
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-06-regression-bh-pytorch.html">
-   62. Revisting Boston Housing with Pytorch
+   73. Revisting Boston Housing with Pytorch
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-06_tensorflow_minst.html">
-   63. Setup
+   74. Setup
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-07-titanic-fastai.html">
-   64. Titanic Fastai
+   75. Titanic Fastai
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-08-ludwig.html">
-   65. Ludwig
+   76. Ludwig
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-09-vectorization-transfer.html">
-   66. Transfer Learning - NLP
+   77. Transfer Learning - NLP
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-10-deeplearningtitanic.html">
-   68. Titanic Classification - Deep Learning Tensorflow
+   79. Titanic Classification - Deep Learning Tensorflow
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   70. Regression with Tensorflow/Keras
+   81. Regression with Tensorflow/Keras
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="nb-10-99_intro_tensorflow.html">
-   71. Tensorflow Graph Creation
+   82. Tensorflow Graph Creation
   </a>
  </li>
 </ul>
@@ -459,37 +488,27 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/hw-1.html">
-   1. Homework-1
+   1. Assignment-1
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/hw-2.html">
-   14. Homework-2
+   2. [Fall 2022] Homework-2
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/hw-3.html">
-   31. Homework-3
+   16. Homework-3
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/hw-4.html">
-   42. Homework-4
+   27. Exam-1: Fall 2022
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/hw-5.html">
-   54. Homework-5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/hw-7.html">
-   62. Homework-7
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/hw-final.html">
-   77. Final Exam
+   34. Homework-5
   </a>
  </li>
 </ul>
@@ -500,7 +519,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference external" href="https://rpi.box.com/s/2rivfabp5r2sc224nwgv3en1cmks3cec">
+  <a class="reference external" href="https://rpi.box.com/s/n53px4yfo4jpfh7qnz7qry8vecopj3np">
    Box Link
   </a>
  </li>
@@ -510,28 +529,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/ageron/handson-ml2">
-   Hands On Machine Learning with Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/fastai/fastbook">
-   Fast.ai Book
+  <a class="reference external" href="https://d2l.ai">
+   Dive into Deep Learning
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="https://www.tensorflow.org/tutorials">
    Tensorflow Tutorials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://pytorch.org/tutorials/">
-   Pytorch Tutorials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://www.kaggle.com/learn/intro-to-deep-learning">
-   Kaggle Introduction to Deep Learning Course
   </a>
  </li>
  <li class="toctree-l1">
@@ -600,7 +604,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/rpi-techfundamentals/website_fall_2021/master?urlpath=tree/site/notebooks/nb-10-11-deeplearningregression.ipynb"
+        <a href="https://mybinder.org/v2/gh/rpi-techfundamentals/website_fall_2022/master?urlpath=tree/site/notebooks/nb-10-11-deeplearningregression.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -618,7 +622,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/rpi-techfundamentals/website_fall_2021/blob/master/site/notebooks/nb-10-11-deeplearningregression.ipynb"
+        <a href="https://colab.research.google.com/github/rpi-techfundamentals/website_fall_2022/blob/master/site/notebooks/nb-10-11-deeplearningregression.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -661,7 +665,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/rpi-techfundamentals/website_fall_2021"
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2022"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -678,7 +682,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/rpi-techfundamentals/website_fall_2021/issues/new?title=Issue%20on%20page%20%2Fnotebooks/nb-10-11-deeplearningregression.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/nb-10-11-deeplearningregression.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -767,12 +771,12 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-preprocessing">
-   70.1. Data preprocessing:
+   81.1. Data preprocessing:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#models-deep-learning-models">
-   70.2. Models Deep Learning Models
+   81.2. Models Deep Learning Models
   </a>
  </li>
 </ul>
@@ -796,12 +800,12 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-preprocessing">
-   70.1. Data preprocessing:
+   81.1. Data preprocessing:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#models-deep-learning-models">
-   70.2. Models Deep Learning Models
+   81.2. Models Deep Learning Models
   </a>
  </li>
 </ul>
@@ -816,8 +820,8 @@ title="Print to PDF"
                 
   <p><a class="reference external" href="http://rpi.analyticsdojo.com"><img alt="AnalyticsDojo" src="https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1" /></a></p>
 <center><h1>Regression with Tensorflow/Keras </h1></center>
-<center><h3><a href = 'http://rpi.analyticsdojo.com'>rpi.analyticsdojo.com</a></h3></center><div class="tex2jax_ignore mathjax_ignore section" id="regression-with-tensorflow-keras">
-<h1><span class="section-number">70. </span>Regression with Tensorflow/Keras<a class="headerlink" href="#regression-with-tensorflow-keras" title="Permalink to this headline">#</a></h1>
+<center><h3><a href = 'http://rpi.analyticsdojo.com'>rpi.analyticsdojo.com</a></h3></center><section class="tex2jax_ignore mathjax_ignore" id="regression-with-tensorflow-keras">
+<h1><span class="section-number">81. </span>Regression with Tensorflow/Keras<a class="headerlink" href="#regression-with-tensorflow-keras" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1420,8 +1424,8 @@ boston_train.csv    100%[===================&gt;] 449.88K  --.-KB/s    in 0.03s
 </div>
 </div>
 </div>
-<div class="section" id="data-preprocessing">
-<h2><span class="section-number">70.1. </span>Data preprocessing:<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">#</a></h2>
+<section id="data-preprocessing">
+<h2><span class="section-number">81.1. </span>Data preprocessing:<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">#</a></h2>
 <p>We’re not going to do anything fancy here:</p>
 <ul class="simple">
 <li><p>First I’ll transform the skewed numeric features by taking log(feature + 1) - this will make the features more normal</p></li>
@@ -1487,9 +1491,9 @@ boston_train.csv    100%[===================&gt;] 449.88K  --.-KB/s    in 0.03s
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="models-deep-learning-models">
-<h2><span class="section-number">70.2. </span>Models Deep Learning Models<a class="headerlink" href="#models-deep-learning-models" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="models-deep-learning-models">
+<h2><span class="section-number">81.2. </span>Models Deep Learning Models<a class="headerlink" href="#models-deep-learning-models" title="Permalink to this headline">#</a></h2>
 <p>Now we are going to use Deep Learning models</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2230,8 +2234,8 @@ _________________________________________________________________
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2264,13 +2268,13 @@ _________________________________________________________________
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">68. </span>Titanic Classification - Deep Learning Tensorflow</p>
+            <p class="prev-next-title"><span class="section-number">79. </span>Titanic Classification - Deep Learning Tensorflow</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="nb-10-99_intro_tensorflow.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">71. </span>Tensorflow Graph Creation</p>
+        <p class="prev-next-title"><span class="section-number">82. </span>Tensorflow Graph Creation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -2283,7 +2287,7 @@ _________________________________________________________________
   
     By Jason Kuruzovich<br/>
   
-      &copy; Copyright 2021.<br/>
+      &copy; Copyright 2022.<br/>
 </p>
         </footer>
     </div>

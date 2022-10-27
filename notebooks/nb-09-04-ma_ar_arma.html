@@ -1,0 +1,1168 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>60. MA, AR, and Arma &#8212; MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="61. Out of Sample Prediction" href="nb-09-05-out_sample_predication.html" />
+    <link rel="prev" title="59. Time Series Analysis" href="nb-09-03-time_series.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-32817743-6', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MGMT 4190/6560 Introduction to Machine Learning Applications @Rensselaer</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Introduction to Machine Learning Applications
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  NOTEBOOKS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-01-python-overview.html">
+   1. Overview of Python Features
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-02-datastructures.html">
+   3. Introduction Datastructures (Varibles, Lists, Dictionaries, and Sets)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-03-numpy.html">
+   4. Overview of Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-01-04-pandas.html">
+   5. Introduction to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-01-conditionals-loops.html">
+   6. Conditional Statements and Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-02-functions.html">
+   7. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-02a-pandas-functions.html">
+   8. Introduction to Apply Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-03-null-values.html">
+   9. Null Values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-04-groupby.html">
+   10. Groupby and Pivot Tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-04-pivottable.html">
+   11. More Pivottables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-05-kaggle-baseline.html">
+   12. Kaggle Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-02-EX-Exercise1.html">
+   13. Exercise 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-01-features-dummies.html">
+   14. Feature Extraction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-02-strings-regular-expressions.html">
+   16. String Manipulation and Regular Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-03-visualization-python-seaborn.html">
+   17. Introduction to Seaborn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-04-intro-python-webmining.html">
+   18. Web Mining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-03-06-matplotlib.html">
+   19. MatplotLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-01-neural-networks.html">
+   20. Neural Networks and the Simplist XOR Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-02-train-test-split.html">
+   21. Train Test Splits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-03-intro_logistic.html">
+   22. Classification with Scikit-learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-04-knn.html">
+   23. KNN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-05-revisit-titanic0.html">
+   24. Titanic Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-06-revisit-titanic.html">
+   25. Titanic Classification - Challenge Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-06-revisit-titanic-visualize_decision_tree.html">
+   26. Titanic Classification - Titanic Visualize Decision Tree
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-07-titanic-features.html">
+   27. Basic Text Feature Creation in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-08-regression_titanic.html">
+   28. Titanic Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-09-standardization.html">
+   29. Titanic Standardization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-10-pca.html">
+   30. Titanic PCA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-04-11-cluster-analysis.html">
+   32. Titanic Cluster
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-05-01-matrix-regression-gradient-decent-python.html">
+   34. Linear Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-05-02-regression-boston-housing-python.html">
+   35. Boston Housing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-05-03-ridge-lasso-python.html">
+   36. Lasso Ridge Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-05-04-stats-models.html">
+   37. Regression with Stats-Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-01-introduction-pca.html">
+   38. Introduction to Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-02-pca2.html">
+   39. In Depth: Principal Component Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-03-kmeans.html">
+   40. k-Means Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-06-04-covid19.html">
+   41. Coronavirus Data Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-00-corpus-simple.html">
+   42. Introduction to Text Mining in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-01-intro-nlp.html">
+   43. Natural Language Toolkit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-02-scikit-learn-text.html">
+   44. Bag-of-Words Using Scikit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-03-what-cooking-python.html">
+   45. What’s Cooking in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-05-bag-popcorn-bag-words.html">
+   46. Bag of Words
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-06-sentiment.html">
+   47. Sentiment Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-07-sentimentB.html">
+   49. Lecture-21: Introduction to Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-08-fastai-imdb.html">
+   51. IMDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-09-intro2.html">
+   52. Introduction to Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-07-10-vectorization.html">
+   53. Vectorizors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-08-01-midterm_sample.html">
+   55. Sample Coding Midterm.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-09-01-time-series.html">
+   56. Time Series Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-09-02-forcasting-rossman.html">
+   57. Panel Data vs Time Series Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-09-03-time_series.html">
+   59. Time Series Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   60. MA, AR, and Arma
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-09-05-out_sample_predication.html">
+   61. Out of Sample Prediction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-00-evaluation.html">
+   62. Evaluation of Classifiers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-00-neural-networks.html">
+   63. Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-01-tensorflow.html">
+   64. Tensorflow Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-02-tensor-tutorial.html">
+   67. Pytorch Tensors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-03-pytorch-iris.html">
+   68. Revisiting IRIS with PyTorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-04-covnet-tutorial.html">
+   69. Convolutional Neural Network with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-04-pytorch-explainer.html">
+   70. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-04_pytorch_mnist1.html">
+   71. Pytorch Advantages vs Tensorflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-05-pytorch-mnist.html">
+   72. PyTorch Deep Explainer MNIST example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-06-regression-bh-pytorch.html">
+   73. Revisting Boston Housing with Pytorch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-06_tensorflow_minst.html">
+   74. Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-07-titanic-fastai.html">
+   75. Titanic Fastai
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-08-ludwig.html">
+   76. Ludwig
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-09-vectorization-transfer.html">
+   77. Transfer Learning - NLP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-10-deeplearningtitanic.html">
+   79. Titanic Classification - Deep Learning Tensorflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-11-deeplearningregression.html">
+   81. Regression with Tensorflow/Keras
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nb-10-99_intro_tensorflow.html">
+   82. Tensorflow Graph Creation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  ASSIGNMENTS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-1.html">
+   1. Assignment-1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-2.html">
+   2. [Fall 2022] Homework-2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-3.html">
+   16. Homework-3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-4.html">
+   27. Exam-1: Fall 2022
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/hw-5.html">
+   34. Homework-5
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://rpi.box.com/s/n53px4yfo4jpfh7qnz7qry8vecopj3np">
+   Box Link
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/ageron/handson-ml2">
+   Hands On Machine Learning with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://d2l.ai">
+   Dive into Deep Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.tensorflow.org/tutorials">
+   Tensorflow Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/capstone.html">
+   <strong>
+    The MS Business Analytics Capstone Course
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/rpi-techfundamentals/website_fall_2022/master?urlpath=tree/site/notebooks/nb-09-04-ma_ar_arma.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/rpi-techfundamentals/website_fall_2022/blob/master/site/notebooks/nb-09-04-ma_ar_arma.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2022"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rpi-techfundamentals/website_fall_2022/issues/new?title=Issue%20on%20page%20%2Fnotebooks/nb-09-04-ma_ar_arma.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/nb-09-04-ma_ar_arma.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>MA, AR, and Arma</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a class="reference external" href="http://rpi.analyticsdojo.com"><img alt="AnalyticsDojo" src="https://github.com/rpi-techfundamentals/spring2019-materials/blob/master/fig/final-logo.png?raw=1" /></a></p>
+<center><h1>MA, AR, and Arma </h1></center>
+<center><h3><a href = 'http://introml.analyticsdojo.com'>introml.analyticsdojo.com</a></h3></center>
+<section class="tex2jax_ignore mathjax_ignore" id="ma-ar-and-arma">
+<h1><span class="section-number">60. </span>MA, AR, and Arma<a class="headerlink" href="#ma-ar-and-arma" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.pylab</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">5</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="o">!</span>pip -q install yfinance
+<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####Moving Average analysis</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FB</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="s2">&quot;META&quot;</span><span class="p">)</span>
+<span class="c1"># get historical market data</span>
+<span class="n">FB_values</span> <span class="o">=</span> <span class="n">FB</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-06-01&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FB_values</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/nb-09-04-ma_ar_arma_5_1.png" src="../_images/nb-09-04-ma_ar_arma_5_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Rolling average</span>
+<span class="n">FB_values</span><span class="p">[</span><span class="s1">&#39;rolling_av&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FB_values</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1"># take a look</span>
+<span class="n">FB_values</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span><span class="s1">&#39;rolling_av&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/nb-09-04-ma_ar_arma_6_1.png" src="../_images/nb-09-04-ma_ar_arma_6_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
+<span class="n">ARMA_model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">FB_values</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">ARMA_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.8/site-packages/statsmodels/tsa/base/tsa_model.py:581: ValueWarning: A date index has been provided, but it has no associated frequency information and so will be ignored when e.g. forecasting.
+  warnings.warn(&#39;A date index has been provided, but it has no&#39;
+/opt/anaconda3/lib/python3.8/site-packages/statsmodels/tsa/base/tsa_model.py:581: ValueWarning: A date index has been provided, but it has no associated frequency information and so will be ignored when e.g. forecasting.
+  warnings.warn(&#39;A date index has been provided, but it has no&#39;
+/opt/anaconda3/lib/python3.8/site-packages/statsmodels/tsa/base/tsa_model.py:581: ValueWarning: A date index has been provided, but it has no associated frequency information and so will be ignored when e.g. forecasting.
+  warnings.warn(&#39;A date index has been provided, but it has no&#39;
+/opt/anaconda3/lib/python3.8/site-packages/statsmodels/tsa/statespace/sarimax.py:978: UserWarning: Non-invertible starting MA parameters found. Using zeros as starting parameters.
+  warn(&#39;Non-invertible starting MA parameters found.&#39;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                  Close   No. Observations:                  608
+Model:                ARIMA(0, 0, 10)   Log Likelihood               -2709.211
+Date:                Wed, 26 Oct 2022   AIC                           5442.423
+Time:                        19:26:34   BIC                           5495.345
+Sample:                             0   HQIC                          5463.012
+                                - 608                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        263.6635      7.284     36.199      0.000     249.388     277.939
+ma.L1          0.7786      0.019     40.264      0.000       0.741       0.817
+ma.L2          0.3297      0.013     24.505      0.000       0.303       0.356
+ma.L3          0.1467      0.011     12.936      0.000       0.125       0.169
+ma.L4          0.9416      0.011     87.808      0.000       0.921       0.963
+ma.L5          1.0996      0.019     59.397      0.000       1.063       1.136
+ma.L6          0.8785      0.020     44.231      0.000       0.840       0.917
+ma.L7          0.1297      0.013     10.040      0.000       0.104       0.155
+ma.L8          0.3853      0.013     29.529      0.000       0.360       0.411
+ma.L9          0.8021      0.015     53.684      0.000       0.773       0.831
+ma.L10         0.8761      0.019     46.821      0.000       0.839       0.913
+sigma2       439.7564     29.343     14.987      0.000     382.245     497.268
+===================================================================================
+Ljung-Box (L1) (Q):                 224.32   Jarque-Bera (JB):                19.29
+Prob(Q):                              0.00   Prob(JB):                         0.00
+Heteroskedasticity (H):               6.97   Skew:                            -0.39
+Prob(H) (two-sided):                  0.00   Kurtosis:                         3.40
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.8/site-packages/statsmodels/base/model.py:566: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn(&quot;Maximum Likelihood optimization failed to &quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2020-06-12&#39;</span>
+<span class="n">end_date</span>   <span class="o">=</span> <span class="s1">&#39;2022-10-04&#39;</span>
+<span class="n">FB_values</span><span class="p">[</span><span class="s1">&#39;forecast_Ma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FB_values</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span><span class="s1">&#39;rolling_av&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_Ma&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/nb-09-04-ma_ar_arma_9_1.png" src="../_images/nb-09-04-ma_ar_arma_9_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A Mojaor flaw is that the time series may not be stationary. It has to be done on returns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####Auto Regressive analysis</span>
+<span class="n">ARMA_model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">FB_values</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">ARMA_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.8/site-packages/statsmodels/tsa/base/tsa_model.py:581: ValueWarning: A date index has been provided, but it has no associated frequency information and so will be ignored when e.g. forecasting.
+  warnings.warn(&#39;A date index has been provided, but it has no&#39;
+/opt/anaconda3/lib/python3.8/site-packages/statsmodels/tsa/base/tsa_model.py:581: ValueWarning: A date index has been provided, but it has no associated frequency information and so will be ignored when e.g. forecasting.
+  warnings.warn(&#39;A date index has been provided, but it has no&#39;
+/opt/anaconda3/lib/python3.8/site-packages/statsmodels/tsa/base/tsa_model.py:581: ValueWarning: A date index has been provided, but it has no associated frequency information and so will be ignored when e.g. forecasting.
+  warnings.warn(&#39;A date index has been provided, but it has no&#39;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                  Close   No. Observations:                  608
+Model:                ARIMA(10, 0, 0)   Log Likelihood               -2051.121
+Date:                Wed, 26 Oct 2022   AIC                           4126.243
+Time:                        19:26:35   BIC                           4179.165
+Sample:                             0   HQIC                          4146.832
+                                - 608                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        263.6740    509.998      0.517      0.605    -735.904    1263.252
+ar.L1          0.9530      0.050     18.994      0.000       0.855       1.051
+ar.L2          0.0623      0.062      1.004      0.315      -0.059       0.184
+ar.L3         -0.1102      0.053     -2.090      0.037      -0.214      -0.007
+ar.L4          0.0396      0.051      0.768      0.442      -0.061       0.140
+ar.L5          0.0193      0.054      0.355      0.722      -0.087       0.126
+ar.L6          0.0225      0.056      0.399      0.690      -0.088       0.133
+ar.L7         -0.0239      0.057     -0.422      0.673      -0.135       0.087
+ar.L8          0.0016      0.070      0.022      0.982      -0.136       0.139
+ar.L9          0.0922      0.076      1.211      0.226      -0.057       0.242
+ar.L10        -0.0570      0.053     -1.072      0.284      -0.161       0.047
+sigma2        49.3269      1.286     38.352      0.000      46.806      51.848
+===================================================================================
+Ljung-Box (L1) (Q):                   0.00   Jarque-Bera (JB):             26048.16
+Prob(Q):                              0.96   Prob(JB):                         0.00
+Heteroskedasticity (H):               2.02   Skew:                            -2.53
+Prob(H) (two-sided):                  0.00   Kurtosis:                        34.66
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2020-06-12&#39;</span>
+<span class="n">end_date</span>   <span class="o">=</span> <span class="s1">&#39;2022-10-04&#39;</span>
+<span class="n">FB_values</span><span class="p">[</span><span class="s1">&#39;forecast_Ar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FB_values</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span><span class="s1">&#39;rolling_av&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_Ma&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_Ar&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/nb-09-04-ma_ar_arma_13_1.png" src="../_images/nb-09-04-ma_ar_arma_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####Now lets do AR &amp; MA</span>
+<span class="n">ARMA_model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">FB_values</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">ARMA_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.8/site-packages/statsmodels/tsa/base/tsa_model.py:581: ValueWarning: A date index has been provided, but it has no associated frequency information and so will be ignored when e.g. forecasting.
+  warnings.warn(&#39;A date index has been provided, but it has no&#39;
+/opt/anaconda3/lib/python3.8/site-packages/statsmodels/tsa/base/tsa_model.py:581: ValueWarning: A date index has been provided, but it has no associated frequency information and so will be ignored when e.g. forecasting.
+  warnings.warn(&#39;A date index has been provided, but it has no&#39;
+/opt/anaconda3/lib/python3.8/site-packages/statsmodels/tsa/base/tsa_model.py:581: ValueWarning: A date index has been provided, but it has no associated frequency information and so will be ignored when e.g. forecasting.
+  warnings.warn(&#39;A date index has been provided, but it has no&#39;
+/opt/anaconda3/lib/python3.8/site-packages/statsmodels/tsa/statespace/sarimax.py:966: UserWarning: Non-stationary starting autoregressive parameters found. Using zeros as starting parameters.
+  warn(&#39;Non-stationary starting autoregressive parameters&#39;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                  Close   No. Observations:                  608
+Model:               ARIMA(10, 0, 10)   Log Likelihood               -2048.853
+Date:                Wed, 26 Oct 2022   AIC                           4141.706
+Time:                        19:26:37   BIC                           4238.730
+Sample:                             0   HQIC                          4179.453
+                                - 608                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        263.6608     77.496      3.402      0.001     111.771     415.551
+ar.L1          0.3242     10.387      0.031      0.975     -20.035      20.683
+ar.L2          0.6924      8.735      0.079      0.937     -16.428      17.813
+ar.L3         -0.0474      2.440     -0.019      0.985      -4.830       4.735
+ar.L4         -0.4487      1.723     -0.260      0.795      -3.826       2.929
+ar.L5          0.0365      3.563      0.010      0.992      -6.946       7.019
+ar.L6          0.3317      2.301      0.144      0.885      -4.179       4.842
+ar.L7         -0.1589      2.141     -0.074      0.941      -4.355       4.037
+ar.L8         -0.4674      2.951     -0.158      0.874      -6.252       5.317
+ar.L9          0.4247      3.224      0.132      0.895      -5.893       6.743
+ar.L10         0.2979      6.117      0.049      0.961     -11.692      12.288
+ma.L1          0.6286     10.385      0.061      0.952     -19.726      20.984
+ma.L2         -0.0274      1.333     -0.021      0.984      -2.639       2.585
+ma.L3         -0.0354      0.766     -0.046      0.963      -1.537       1.466
+ma.L4          0.3989      0.523      0.762      0.446      -0.627       1.424
+ma.L5          0.4050      3.963      0.102      0.919      -7.362       8.172
+ma.L6          0.1198      2.022      0.059      0.953      -3.844       4.083
+ma.L7          0.2405      0.631      0.381      0.703      -0.997       1.478
+ma.L8          0.6664      2.667      0.250      0.803      -4.561       5.893
+ma.L9          0.3085      5.696      0.054      0.957     -10.855      11.472
+ma.L10         0.0216      0.318      0.068      0.946      -0.601       0.645
+sigma2        49.3105      1.759     28.029      0.000      45.862      52.759
+===================================================================================
+Ljung-Box (L1) (Q):                   0.00   Jarque-Bera (JB):             25080.34
+Prob(Q):                              0.97   Prob(JB):                         0.00
+Heteroskedasticity (H):               1.99   Skew:                            -2.45
+Prob(H) (two-sided):                  0.00   Kurtosis:                        34.08
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.8/site-packages/statsmodels/base/model.py:566: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn(&quot;Maximum Likelihood optimization failed to &quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2020-06-12&#39;</span>
+<span class="n">end_date</span>   <span class="o">=</span> <span class="s1">&#39;2022-10-04&#39;</span>
+<span class="n">FB_values</span><span class="p">[</span><span class="s1">&#39;forecast_ArMA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">FB_values</span><span class="p">[[</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_Ar&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_ArMA&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Date&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/nb-09-04-ma_ar_arma_16_1.png" src="../_images/nb-09-04-ma_ar_arma_16_1.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="nb-09-03-time_series.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">59. </span>Time Series Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="nb-09-05-out_sample_predication.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">61. </span>Out of Sample Prediction</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jason Kuruzovich<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
